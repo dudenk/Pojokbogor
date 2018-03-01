@@ -1,0 +1,99 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+}
+#app {
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+}
+iframe {
+  max-width: 100%;
+}
+h1, h2, h3, h4, h5, h6,
+p,
+.text {
+
+}
+h2 {
+  line-height: 19px;
+  font-size: 20px;
+}
+h3 {
+  line-height: 15px;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+}
+p {
+  font-size: 14px;
+  letter-spacing: 0.1px;
+}
+a {
+  color: #111;
+}
+img {
+    max-width: 100%;
+    height: auto !important;
+}
+span.text {
+  font-size: 12px;
+}
+.slideImg {
+  max-height: 250px;
+  overflow: hidden;
+}
+.slideImg img {
+  width: 100%
+}
+h2.slidertitle {
+  margin-top: 5px;
+}
+.flex-caption {
+  position: absolute;
+  bottom: 0;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 5px 10px;
+}
+.flex-caption a {
+  color: #fff;
+}
+h3.title.post-title {
+  margin-top: 3px;
+}
+.post-info,
+.post-info a {
+  color: #555;
+}
+article {
+  padding-left:10px;
+  padding-right:10px;
+}
+article.list {
+  border-bottom: 1px solid #eee;
+  padding-top: 5px;
+}
+article.single {
+  background: #fff;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+span.thecategory {
+  padding-right: 10px;
+}
+span.thecategory a {
+  color: #fc5454;
+}
+.social-icons li {
+  display: inline-block;
+  width: 24.3%;
+  text-align: center;
+  padding: 10px 0;
+  margin: 0;
+  font-size: 20px;
+}
+.wp-caption-text {
+  font-style: italic;
+  font-size: 13px;
+}
