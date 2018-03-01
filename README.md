@@ -1,4 +1,4 @@
-# mynuxt
+# Pojokbogor
 
 > Nuxt.js project
 
