@@ -53,11 +53,11 @@ export default {
   data () {
     return {
       // queryParams can contain any query paramater key and value defined by the WP REST API
-      postLoader: this.createWpLoader('http://jabar.pojoksatu.id/wp-json/wp/v2/posts', {
+      postLoader: this.createWpLoader('https://jabar.pojoksatu.id/wp-json/wp/v2/posts', {
         // embed: false,
         queryParams: ['categories=6', 'per_page=20']
       }),
-      headlineLoader: this.createWpLoader('http://jabar.pojoksatu.id/wp-json/wp/v2/posts', {
+      headlineLoader: this.createWpLoader('https://jabar.pojoksatu.id/wp-json/wp/v2/posts', {
         // embed: false,
         queryParams: ['categories=6', 'per_page=3', 'filter[meta_key]=headline', 'filter[meta_value]=1']
       })
