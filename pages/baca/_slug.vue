@@ -184,7 +184,7 @@ export default {
       return hasil
     },
     shareUrl: function (slug) {
-      return 'https://bogor.pojoksatu.id/baca/' + slug
+      return this.postUrl
     }
   }
 }
