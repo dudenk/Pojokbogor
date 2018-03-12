@@ -74,6 +74,14 @@ export default {
     asyncContent,
     postSummary
   },
+  beforeCreate: function (to) {
+    this.$axios.get('http://jabar.pojoksatu.id/wp-json/wp/v2/posts/?slug=' + this.$route.params.slug)
+      .then(json => {
+        //console.log(json.data[0])
+        this.post = json.data[0]
+        this.loaded = true
+      })
+  },
   data () {
     return {
       // queryParams can contain any query paramater key and value defined by the WP REST API
@@ -81,7 +89,7 @@ export default {
       post: {
         authorname: '',
         title: {
-          rendered: 'Judul berita'
+          rendered: ''
         },
         excerpt: {},
         content: {},
@@ -91,14 +99,6 @@ export default {
         better_featured_image: {}
       }
     }
-  },
-  beforeCreate: function (to) {
-    this.$axios.get('http://jabar.pojoksatu.id/wp-json/wp/v2/posts/?slug=' + this.$route.params.slug)
-      .then(json => {
-        //console.log(json.data[0])
-        this.post = json.data[0]
-        this.loaded = true
-      })
   },
   head () {
     return {
