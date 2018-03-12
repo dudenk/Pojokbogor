@@ -97,7 +97,7 @@ export default {
       return this.$store.state.post
     },
     postUrl: function () {
-      return 'http://bogor.pojoksatu.id/baca/' + this.post.slug
+      return 'http://pojokbogor.herokuapp.com/baca/' + this.post.slug
     },
     keyWords: function () {
       return this.post.title.rendered
