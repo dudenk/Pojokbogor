@@ -57,7 +57,7 @@ export default {
     }
   },
   created: function () {
-    this.$axios.get('https://www.googleapis.com/youtube/v3/playlistItems/?maxResults=25&playlistId=PL8OFoqLPiw0RxqptZSRzjBIuFbcucKD2e&part=snippet%2CcontentDetails&key=AIzaSyCbf791lc1Jo3P7R-atPrtadODDVORa8pk')
+    this.$axios.get('https://www.googleapis.com/youtube/v3/playlistItems/?maxResults=25&playlistId=PL8OFoqLPiw0RxqptZSRzjBIuFbcucKD2e&part=snippet%2CcontentDetails&key=AIzaSyCcCSUTmmYXxKN0ClWABQBHhhulEpjUa1k')
       .then(response => {
         //console.log(response.data)
         this.dataYoutube = response.data

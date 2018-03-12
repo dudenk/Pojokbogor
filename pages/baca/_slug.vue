@@ -93,7 +93,7 @@ export default {
     }
   },
   beforeCreate: function (to) {
-    this.$axios.get('https://jabar.pojoksatu.id/wp-json/wp/v2/posts/?slug=' + this.$route.params.slug)
+    this.$axios.get('http://jabar.pojoksatu.id/wp-json/wp/v2/posts/?slug=' + this.$route.params.slug)
       .then(json => {
         //console.log(json.data[0])
         this.post = json.data[0]
@@ -139,7 +139,7 @@ export default {
   },
   computed: {
     postUrl: function () {
-      return 'https://bogor.pojoksatu.id/baca/' + this.post.slug
+      return 'http://bogor.pojoksatu.id/baca/' + this.post.slug
     },
     keyWords: function () {
       return this.post.title.rendered

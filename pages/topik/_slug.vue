@@ -84,7 +84,7 @@ export default {
       })
   }, */
   beforeCreate: function (to) {
-    axios.get('https://jabar.pojoksatu.id/wp-json/wp/v2/tags/?slug=' + this.$route.params.slug)
+    axios.get('http://jabar.pojoksatu.id/wp-json/wp/v2/tags/?slug=' + this.$route.params.slug)
       .then(json => {
         //console.log(this)
         this.setData(json.data[0])
@@ -123,11 +123,11 @@ export default {
       return this.$moment(theDate).startOf('minutes').fromNow()
     },
     getPostLoader (tags) {
-      this.postLoader = this.createWpLoader('https://jabar.pojoksatu.id/wp-json/wp/v2/posts', {
+      this.postLoader = this.createWpLoader('http://jabar.pojoksatu.id/wp-json/wp/v2/posts', {
         // embed: false,
         queryParams: ['categories=6', 'per_page=20', 'tags=' + tags.id]
       })
-      this.headlineLoader = this.createWpLoader('https://jabar.pojoksatu.id/wp-json/wp/v2/posts', {
+      this.headlineLoader = this.createWpLoader('http://jabar.pojoksatu.id/wp-json/wp/v2/posts', {
         // embed: false,
         queryParams: ['categories=6', 'per_page=3', 'filter[meta_key]=headline', 'filter[meta_value]=1', 'tags=' + tags.id]
       })
