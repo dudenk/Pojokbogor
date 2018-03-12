@@ -19,17 +19,22 @@
     </section>
     <section id="latest-posts" class="clearfix">
       <van-nav-bar title="Berita Terkini" />
-      <async-content :loaded="postLoader.pages[0].loaded">
-        <div v-for="(post,index) of postLoader.pages[0].content" :key="index" >
-          <article class="list horizontal" itemscope="" itemtype="http://schema.org/NewsArticle">
-            <post-summary imgSize="thumbnail" :post="post" class="post-summary"></post-summary>
-          </article>
-          <div class="clear clearfix"> </div>
-          <div v-if="index == 4" style="margin-bottom:150px;" class="clearfix" >
+      <div v-for="(page,index) of postLoader.pages" :key="index">
+        <async-content :loaded="page.loaded">
+          <div v-for="(post,index) of page.content" :key="index" >
+            <article class="list horizontal" itemscope="" itemtype="http://schema.org/NewsArticle">
+              <post-summary imgSize="thumbnail" :post="post" class="post-summary"></post-summary>
+            </article>
+            <div class="clear clearfix"> </div>
+            <div v-if="index == 4" style="margin-bottom:150px;" class="clearfix" >
 
+            </div>
           </div>
-        </div>
-      </async-content>
+        </async-content>
+      </div>
+      <div class="tombol">
+        <van-button @click="postLoader.loadPage()" type="primary" size="large">Berita Lain</van-button>
+      </div>
     </section>
   </div>
 </template>
@@ -38,7 +43,7 @@
 import wpMixin from '~/plugins/wp-mixin'
 import asyncContent from '~/components/async-content.vue'
 import postSummary from '~/components/post-summary.vue'
-import { NavBar, Swipe, SwipeItem } from 'vant'
+import { NavBar, Swipe, SwipeItem, Button } from 'vant'
 
 export default {
   name: 'Home',
@@ -47,6 +52,7 @@ export default {
     [NavBar.name]: NavBar,
     [Swipe.name]: Swipe,
     [SwipeItem.name]: SwipeItem,
+    [Button.name]: Button,
     asyncContent,
     postSummary
   },

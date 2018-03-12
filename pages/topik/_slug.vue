@@ -19,13 +19,18 @@
     </section>
     <section v-if="postLoader" id="latest-posts" class="clearfix">
       <van-nav-bar :title="dataTags.name" />
-      <async-content :loaded="postLoader.pages[0].loaded">
-        <div v-for="(post,index) of postLoader.pages[0].content" :key="index" >
-          <article class="list" itemscope="" itemtype="http://schema.org/NewsArticle">
-            <post-summary imgSize="thumbnail" :post="post" class="post-summary"></post-summary>
-          </article>
-        </div>
-      </async-content>
+      <div v-for="(page,index) of postLoader.pages" :key="index">
+        <async-content :loaded="page.loaded">
+          <div v-for="(post,index) of page.content" :key="index" >
+            <article class="list" itemscope="" itemtype="http://schema.org/NewsArticle">
+              <post-summary imgSize="thumbnail" :post="post" class="post-summary"></post-summary>
+            </article>
+          </div>
+        </async-content>
+      </div>
+      <div class="tombol">
+        <van-button @click="postLoader.loadPage()" type="primary" size="large">Berita Lain</van-button>
+      </div>
     </section>
     <section v-if="error" class="error">
       <van-notice-bar
@@ -42,7 +47,7 @@ import wpMixin from '~/plugins/wp-mixin'
 import asyncContent from '~/components/async-content.vue'
 import postSummary from '~/components/post-summary.vue'
 
-import { NavBar, NoticeBar, Swipe, SwipeItem } from 'vant';
+import { NavBar, NoticeBar, Swipe, SwipeItem, Button  } from 'vant';
 
 export default {
   name: 'Topik',
@@ -53,6 +58,7 @@ export default {
     [NoticeBar.name]: NoticeBar,
     [Swipe.name]: Swipe,
     [SwipeItem.name]: SwipeItem,
+    [Button.name]: Button,
     postSummary
   },
   async fetch (vm) {

@@ -2,13 +2,13 @@
   <div>
     <div class="layout-padding row justify-center">
     <section class="container clearfix" style="padding-top:10px;">
-      <!-- <async-content :loaded="loaded"> -->
+      <async-content :loaded="loaded">
         <article data-count="2-1" class="single" itemscope="" itemtype="http://schema.org/NewsArticle">
           <div class="single_post">
             <div class="breadcrumb">
             </div>
             <header>
-              <h1 class="title single-title entry-title" v-html="post.title.rendered" style="margin:0;"></h1>
+              <h1 class="title single-title" v-html="post.title.rendered"></h1>
               <div class="post-info">
                 <span class="thetime updated text" itemprop="datePublished" :content="post.date">
                   <van-icon name="clock" style="vertical-align: text-top;" /> {{ postDate(post.date) }}
@@ -55,7 +55,7 @@
             <div class="post_tag text" v-html="theTags()"></div>
           </div>
         </article>
-      <!-- </async-content> -->
+      </async-content>
     </section>
     </div>
   </div>
@@ -103,11 +103,11 @@ export default {
       return this.post.title.rendered
     }
   },
-  /*data () {
+  data () {
     return {
       // queryParams can contain any query paramater key and value defined by the WP REST API
       loaded: false,
-      post: {
+      /*post: {
         authorname: '',
         title: {
           rendered: ''
@@ -118,9 +118,9 @@ export default {
           tags:[]
         },
         better_featured_image: {}
-      }
+      }*/
     }
-  }, */
+  },
   head () {
     return {
       title: this.post.title.rendered,
@@ -141,6 +141,11 @@ export default {
           content: this.post.title.rendered
         },
         {
+          hid: 'og:type',
+          property: 'og:type',
+          content: 'article'
+        },
+        {
           hid: 'og:url',
           property: 'og:url',
           content: this.postUrl
@@ -158,17 +163,11 @@ export default {
       ]
     }
   },
-  /*computed: {
-    postUrl: function () {
-      return 'http://bogor.pojoksatu.id/baca/' + this.post.slug
-    },
-    keyWords: function () {
-      return this.post.title.rendered
-    }
-  }, */
   methods: {
     postDate: function (theDate) {
-      this.loaded = true
+      if (theDate) {
+        this.loaded = true
+      }
       this.$moment.locale('id')
       return this.$moment(theDate).format('LLLL')
     },

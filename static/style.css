@@ -20,7 +20,7 @@ h2 {
   font-size: 20px;
 }
 h3 {
-  line-height: 15px;
+  line-height: 18px;
   font-size: 15px;
   font-weight: 400;
   letter-spacing: 0.2px;
@@ -79,6 +79,12 @@ article.single {
   padding-top: 20px;
   padding-bottom: 20px;
 }
+h1.single-title {
+    font-size: 18px;
+    margin: 0 0 5px 0;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #999;
+}
 span.thecategory {
   padding-right: 10px;
 }
@@ -96,4 +102,7 @@ span.thecategory a {
 .wp-caption-text {
   font-style: italic;
   font-size: 13px;
+}
+.tombol {
+  padding:20px;
 }
