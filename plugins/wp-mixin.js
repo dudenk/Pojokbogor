@@ -185,9 +185,12 @@ export default {
     },
 
     getSingleTags (postJson, tagTaxonomy) {
+      const wpTermCAT = safeGet(postJson, '_embedded.wp:term[0]')
       const wpTerm = safeGet(postJson, '_embedded.wp:term[1]')
-      tagTaxonomy = tagTaxonomy || 'post_tag'
-      if ( wpTerm )
+      // tagTaxonomy = tagTaxonomy || 'post_tag'
+      if ( wpTermCAT[1] )
+        return wpTermCAT[1]
+      else if ( wpTerm )
         return wpTerm[0]
       else
         return null
