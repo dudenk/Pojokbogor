@@ -55,10 +55,23 @@ export default {
     [SwipeItem.name]: SwipeItem,
     postSummary
   },
+  async fetch (vm) {
+    //console.log(vm)
+    vm.store.dispatch('getTag', vm.params.slug)
+    //let { data } = await vm.$axios.get('http://jabar.pojoksatu.id/wp-json/wp/v2/tags/?slug=' + vm.params.slug)
+    //vm.store.commit('setCurrentTag', data)
+    //console.log (data)
+  },
+  computed: {
+    dataTags () {
+      this.getPostLoader(this.$store.state.tag)
+      return this.$store.state.tag
+    }
+  },
   data () {
     return {
       error: null,
-      dataTags: {},
+      //dataTags: {},
       // queryParams can contain any query paramater key and value defined by the WP REST API
       postLoader: null,
       headlineLoader: null
@@ -83,22 +96,13 @@ export default {
         next()
       })
   }, */
-  beforeCreate: function (to) {
+  /*beforeCreate: function (to) {
     axios.get('http://jabar.pojoksatu.id/wp-json/wp/v2/tags/?slug=' + this.$route.params.slug)
       .then(json => {
         //console.log(this)
         this.setData(json.data[0])
       })
-  },
-  created: function () {
-    /* var tags = {
-      id: 245
-    }
-    this.getPostLoader(tags) */
-    /* this.dataTags = this.directRequest('https://jabar.pojoksatu.id/wp-json/wp/v2/tags/?slug=' + this.$route.params.slug, {
-      mapper: 'noMapper'
-    }) */
-  },
+  },*/
   head () {
     return {
       title: this.dataTags.name,
@@ -108,7 +112,7 @@ export default {
     }
   },
   methods: {
-    setData (tags) {
+    /*setData (tags) {
       if (tags) {
         this.error = null
         this.dataTags = tags
@@ -117,7 +121,7 @@ export default {
         this.postLoader = this.headlineLoader = null
         this.error = 'Content tidak ditemukan'
       }
-    },
+    }, */
     postDate2: function (theDate) {
       this.$moment.locale('id')
       return this.$moment(theDate).startOf('minutes').fromNow()

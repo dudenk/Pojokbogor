@@ -7,18 +7,19 @@ const createStore = () => {
     state: {
       menuIsActive: false,
       post: {},
+      tag: {},
       posts: []
     },
     //plugins: [createPersistedState()],
     mutations: {
-      toggleMenuState (state) {
-        state.menuIsActive = !state.menuIsActive
-      },
       setPosts: (state, posts) => {
         state.posts = posts
       },
       setCurrentPost: (state, post) => {
         state.post = post
+      },
+      setCurrentTag: (state, tag) => {
+        state.tag = tag
       }
     },
     actions: {
@@ -28,16 +29,23 @@ const createStore = () => {
       },
       async getPost ({commit, store}, slug) {
         let {data} = await axios.get(`v2/posts/?slug=${slug}`)
-        commit('setCurrentPost', data)
+        commit('setCurrentPost', data[0])
       },
-      async nuxtServerInit ({commit}, {store, client, server, route, params}) {
-        if (server && route.name === 'topik') {
-          let {data} = await axios.get('posts')
-          commit('setPosts', data)
+      async getTag ({commit, store}, slug) {
+        let {data} = await axios.get(`v2/tags/?slug=${slug}`)
+        commit('setCurrentTag', data[0])
+      },
+      async nuxtServerInit ({commit}, {store, isClient, isServer, route, params}) {
+        if (isServer && route.name === 'topik-slug') {
+          let {data} = await axios.get(`v2/tags/?slug=${params.slug}`)
+          commit('setCurrentTag', data[0])
+          //let {data} = await axios.get('posts')
+          //commit('setPosts', data)
+
         }
-        if (server && params.slug) {
+        if (isServer && params.slug) {
           let {data} = await axios.get(`v2/posts/?slug=${params.slug}`)
-          commit('setCurrentPost', data)
+          commit('setCurrentPost', data[0])
         }
       }
     }

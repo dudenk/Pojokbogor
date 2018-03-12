@@ -68,21 +68,42 @@ import postSummary from '~/components/post-summary.vue'
 import { Icon } from 'vant'
 
 export default {
+  /* fetch ({ store, params }) {
+    store.dispatch('getPost', params.slug)
+  }, */
+  async fetch (vm) {
+    //console.log(vm)
+    vm.store.dispatch('getPost', vm.params.slug)
+    //let { data } = await vm.$axios.get('http://jabar.pojoksatu.id/wp-json/wp/v2/posts/?slug=' + vm.params.slug)
+    //vm.store.commit('setCurrentPost', data)
+    //console.log (data)
+  },
   mixins: [wpMixin],
   components: {
     [Icon.name]: Icon,
     asyncContent,
     postSummary
   },
-  beforeCreate: function (to) {
+  /* beforeCreate: function (to) {
     this.$axios.get('http://jabar.pojoksatu.id/wp-json/wp/v2/posts/?slug=' + this.$route.params.slug)
       .then(json => {
         //console.log(json.data[0])
         this.post = json.data[0]
         this.loaded = true
       })
+  }, */
+  computed: {
+    post () {
+      return this.$store.state.post
+    },
+    postUrl: function () {
+      return 'http://bogor.pojoksatu.id/baca/' + this.post.slug
+    },
+    keyWords: function () {
+      return this.post.title.rendered
+    }
   },
-  data () {
+  /*data () {
     return {
       // queryParams can contain any query paramater key and value defined by the WP REST API
       loaded: false,
@@ -99,7 +120,7 @@ export default {
         better_featured_image: {}
       }
     }
-  },
+  }, */
   head () {
     return {
       title: this.post.title.rendered,
@@ -137,14 +158,14 @@ export default {
       ]
     }
   },
-  computed: {
+  /*computed: {
     postUrl: function () {
       return 'http://bogor.pojoksatu.id/baca/' + this.post.slug
     },
     keyWords: function () {
       return this.post.title.rendered
     }
-  },
+  }, */
   methods: {
     postDate: function (theDate) {
       this.loaded = true
@@ -152,12 +173,12 @@ export default {
       return this.$moment(theDate).format('LLLL')
     },
     theTags: function() {
-      var hasil
+      var hasil = ''
       var mentah = this.post.pure_taxonomies.tags
       for ( var index = 0; index < mentah.length; ++index) {
         var p = this.post.pure_taxonomies.tags[index]
         if (typeof p.name !== 'undefined'){
-          hasil += p.name
+          hasil += p.name + ', '
         }
       }
       return hasil

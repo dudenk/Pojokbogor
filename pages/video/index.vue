@@ -69,7 +69,7 @@ export default {
       return this.$moment(theDate).startOf('minutes').fromNow()
     },
     videoURL: function (videoId) {
-      console.log(this)
+      //console.log(this)
       //var youtubeUrl = this.$router.name;
       var youtubeUrl = 'https://www.youtube.com/watch?v=' + videoId + '&list=PL8OFoqLPiw0RxqptZSRzjBIuFbcucKD2e'
       return youtubeUrl
