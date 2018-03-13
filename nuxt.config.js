@@ -15,7 +15,7 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/icons/favicon.png' }
     ],
     script: [
-      { src: 'https://use.fontawesome.com/releases/v5.0.7/js/all.js' }
+      // { src: 'https://use.fontawesome.com/releases/v5.0.7/js/all.js' }
     ]
   },
   css: [
@@ -31,7 +31,6 @@ module.exports = {
   ],
   modules: [
     '@nuxtjs/axios',
-    'nuxt-fontawesome',
   ],
   fontawesome: {
     component: 'fa'
