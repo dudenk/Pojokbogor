@@ -26,9 +26,10 @@ h3 {
   letter-spacing: 0.2px;
 }
 p {
-  font-size: 14.5px;
-  letter-spacing: 0.4px;
-  line-height: 19px;
+  font-size: 16px;
+  letter-spacing: 0.2px;
+  line-height: 20px;
+  font-weight: 300;
 }
 a {
   color: #111;
