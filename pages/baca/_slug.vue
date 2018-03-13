@@ -7,7 +7,7 @@
           <div class="single_post">
             <div class="breadcrumb">
             </div>
-            <header>
+            <div class="single-header">
               <h1 class="title single-title" v-html="post.title.rendered"></h1>
               <div class="post-info">
                 <span class="thetime updated text" itemprop="datePublished" :content="post.date">
@@ -53,7 +53,7 @@
                   </ul>
                 </div>
               </social-sharing>
-            </header>
+            </div>
             <div class="the-thumbnail">
               <img class="fullsingle" data-cfsrc="" :title="post.title.rendered" :alt="post.title.rendered" :src="post.featured_image_src" scale="0">
               <p class="wp-caption-text">{{ post.better_featured_image.caption }} </p>
@@ -71,6 +71,7 @@
 
 <script>
 import wpMixin from '~/plugins/wp-mixin'
+import striptags from 'striptags'
 import asyncContent from '~/components/async-content.vue'
 import postSummary from '~/components/post-summary.vue'
 import { Icon } from 'vant'
@@ -136,7 +137,7 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: this.post.excerpt.rendered
+          content: striptags(this.post.excerpt.rendered)
         },
         {
           hid: 'keywords',
@@ -166,7 +167,7 @@ export default {
         {
           hid: 'og:description',
           property: 'og:description',
-          content: this.post.excerpt.rendered
+          content: striptags(this.post.excerpt.rendered)
         }
       ]
     }
