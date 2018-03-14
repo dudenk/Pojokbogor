@@ -26,7 +26,7 @@
               <post-summary imgSize="thumbnail" :post="post" class="post-summary"></post-summary>
             </article>
             <div class="clear clearfix"> </div>
-            <iframe v-if="i === 5"
+            <iframe v-if="index === 0 && i === 5"
               src="http://pojoksatu.pojokiklan.net/?wpproadszoneid=348"
               style="width: 100%; min-height: 90px; background:#fff; z-index:2"
             />

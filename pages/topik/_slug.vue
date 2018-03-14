@@ -25,7 +25,11 @@
             <article class="list" itemscope="" itemtype="http://schema.org/NewsArticle">
               <post-summary imgSize="thumbnail" :post="post" class="post-summary"></post-summary>
             </article>
-            <iframe v-if="i === 5"
+            <div v-if="index === 0 && i === 2 && KotaKab ">
+              <kota-bogor v-if="KotaKab === 'kota-bogor'"> </kota-bogor>
+              <kab-bogor v-if="KotaKab === 'kabupaten-bogor'"> </kab-bogor>
+            </div>
+            <iframe v-if="index === 0 && i === 5"
               src="http://pojoksatu.pojokiklan.net/?wpproadszoneid=348"
               style="width: 100%; min-height: 90px; background:#fff; z-index:2"
             />
@@ -52,6 +56,8 @@ import axios from 'axios'
 import wpMixin from '~/plugins/wp-mixin'
 import asyncContent from '~/components/async-content.vue'
 import postSummary from '~/components/post-summary.vue'
+import kotaBogor from '~/components/kota-bogor.vue'
+import kabBogor from '~/components/kab-bogor.vue'
 
 import { NavBar, NoticeBar, Swipe, SwipeItem, Button  } from 'vant';
 
@@ -65,7 +71,9 @@ export default {
     [Swipe.name]: Swipe,
     [SwipeItem.name]: SwipeItem,
     [Button.name]: Button,
-    postSummary
+    postSummary,
+    kotaBogor,
+    kabBogor
   },
   async fetch (vm) {
     //console.log(vm)
@@ -86,35 +94,14 @@ export default {
       //dataTags: {},
       // queryParams can contain any query paramater key and value defined by the WP REST API
       postLoader: null,
-      headlineLoader: null
+      headlineLoader: null,
+      KotaKab: null
     }
   },
   watch: {
     // call again the method if the route changes
-    // '$route': 'setData'
-  }, /*
-  beforeRouteEnter (to, from, next) {
-    axios.get('https://jabar.pojoksatu.id/wp-json/wp/v2/tags/?slug=' + to.params.slug)
-      .then(json => {
-        //console.log(json)
-        next(vm => vm.getPostLoader(json.data[0]))
-      })
+    '$route': 'setData'
   },
-  beforeRouteUpdate (to, from, next) {
-    axios.get('https://jabar.pojoksatu.id/wp-json/wp/v2/tags/?slug=' + to.params.slug)
-      .then(json => {
-        //console.log(this)
-        this.getPostLoader(json.data[0])
-        next()
-      })
-  }, */
-  /*beforeCreate: function (to) {
-    axios.get('http://jabar.pojoksatu.id/wp-json/wp/v2/tags/?slug=' + this.$route.params.slug)
-      .then(json => {
-        //console.log(this)
-        this.setData(json.data[0])
-      })
-  },*/
   head () {
     return {
       title: this.dataTags.name,
@@ -123,17 +110,14 @@ export default {
       ]
     }
   },
+  created: function () {
+    this.setData()
+  },
   methods: {
-    /*setData (tags) {
-      if (tags) {
-        this.error = null
-        this.dataTags = tags
-        this.getPostLoader(tags)
-      } else {
-        this.postLoader = this.headlineLoader = null
-        this.error = 'Content tidak ditemukan'
-      }
-    }, */
+    setData () {
+      console.log( this.$route )
+      this.KotaKab = this.$route.params.slug
+    },
     postDate2: function (theDate) {
       this.$moment.locale('id')
       return this.$moment(theDate).startOf('minutes').fromNow()

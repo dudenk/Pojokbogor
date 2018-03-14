@@ -112,3 +112,12 @@ span.thecategory a {
 .tombol {
   padding:20px;
 }
+.framebogor {
+  padding: 10px;
+  margin: 10px 0;
+}
+.framtitle {
+  position: absolute;
+  z-index: 2;
+  padding: 5px 10px;
+}
