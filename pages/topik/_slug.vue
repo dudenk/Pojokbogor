@@ -31,7 +31,7 @@
             </div>
             <iframe v-if="index === 0 && i === 5"
               src="http://pojoksatu.pojokiklan.net/?wpproadszoneid=348"
-              style="width: 100%; min-height: 90px; background:#fff; z-index:2"
+              style="width: 100%; height: 90px; background:#fff; z-index:2"
             />
             <adsbygoogle v-if="i === 10" ad-slot="1364860599" ad-layout-key="-fe+69+39-ji+nt" ad-format="fluid" />
             <adsbygoogle v-if="i === 15" ad-slot="1364860599" ad-layout-key="-fe+69+39-ji+nt" ad-format="fluid" />

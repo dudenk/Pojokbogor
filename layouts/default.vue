@@ -16,7 +16,17 @@
     <div class="main-content">
       <nuxt/>
     </div>
-
+    <div class="main-footer">
+      <van-goods-action>
+        <van-goods-action-mini-btn icon="qr" text="Pojoksatu" href="http://pojoksatu.id" target="_blank" />
+        <van-goods-action-mini-btn icon="qr" text="Jabar" href="http://jabar.pojoksatu.id" target="_blank" />
+        <van-goods-action-mini-btn icon="qr" text="Bekasi" href="http://gobekasi.pojoksatu.id" target="_blank" />
+        <van-goods-action-mini-btn icon="qr" text="Sumut" href="http://sumut.pojoksatu.id" target="_blank" />
+        <van-goods-action-mini-btn icon="qr" text="Jogja" href="http://jogja.pojoksatu.id" target="_blank" />
+        <van-goods-action-mini-btn icon="qr" text="Bandung" href="http://bandung.pojoksatu.id" target="_blank" />
+        <van-goods-action-mini-btn icon="qr" text="Sulsel" href="http://sulsel.pojoksatu.id" target="_blank" />
+      </van-goods-action>
+    </div>
     <van-tabbar v-model="active">
       <van-tabbar-item icon="wap-home" to="/">
           Home
@@ -29,7 +39,15 @@
 </template>
 
 <script>
-import { NavBar, Tab, Tabs, Tabbar, TabbarItem, Icon } from 'vant'
+import {
+  NavBar,
+  Tab,
+  Tabs,
+  Tabbar,
+  TabbarItem,
+  Icon,
+  GoodsAction,
+  GoodsActionMiniBtn } from 'vant'
 
 export default {
   components: {
@@ -38,7 +56,9 @@ export default {
     [Tabs.name]: Tabs,
     [Tabbar.name]: Tabbar,
     [TabbarItem.name]: TabbarItem,
-    [Icon.name]: Icon
+    [Icon.name]: Icon,
+    [GoodsAction.name]: GoodsAction,
+    [GoodsActionMiniBtn.name]: GoodsActionMiniBtn
   },
   data() {
     return {
@@ -97,22 +117,11 @@ export default {
 };
 </script>
 
-<style>
-body {
-  background-color: #fafafa;
-}
-img.logo {
-  padding-top: 7px;
-}
-.tabbartop {
-  position: absolute;
-  top: 40px;
+<style scoped>
+.van-goods-action__mini-btn {
+  min-width: 14.2%;
 }
 .van-cell__title .van-icon {
   font-size: 18px;
-}
-.main-content {
-    padding-top: 40px;
-    padding-bottom: 60px;
 }
 </style>

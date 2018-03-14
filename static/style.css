@@ -1,6 +1,18 @@
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
+  background-color: #fafafa;
+}
+img.logo {
+  padding-top: 7px;
+}
+.tabbartop {
+  position: absolute;
+  top: 40px;
+}
+.main-content {
+    padding-top: 40px;
+    padding-bottom: 60px;
 }
 #app {
   max-width: 600px;
@@ -9,6 +21,7 @@ body {
 }
 iframe {
   max-width: 100%;
+  border:0;
 }
 h1, h2, h3, h4, h5, h6,
 p,
@@ -123,4 +136,15 @@ span.thecategory a {
 }
 .van-tabbar-item:hover{
   cursor: pointer;
+}
+.van-nav-bar__title,
+.van-tab span {
+    font-size: 18px;
+}
+.main-footer {
+  margin-bottom: 50px;
+  position: relative;
+}
+.van-goods-action {
+  position: absolute;
 }
