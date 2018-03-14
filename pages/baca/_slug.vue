@@ -56,7 +56,7 @@
             </div>
             <div class="the-thumbnail">
               <img class="fullsingle" data-cfsrc="" :title="post.title.rendered" :alt="post.title.rendered" :src="post.featured_image_src" scale="0">
-              <p class="wp-caption-text">{{ post.better_featured_image.caption }} </p>
+              <h2 class="wp-caption-text">{{ post.better_featured_image.caption }} </h2>
             </div>
             <div class="content">
               <div v-for="(content,p) of post.content.rendered.split('</p>')" :key="p">

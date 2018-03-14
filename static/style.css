@@ -121,6 +121,7 @@ span.thecategory a {
 .wp-caption-text {
   font-style: italic;
   font-size: 13px;
+  font-weight: 100;
 }
 .tombol {
   padding:20px;
