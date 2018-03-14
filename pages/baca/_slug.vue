@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="layout-padding row justify-center">
-    <section class="container clearfix" style="padding-top:10px;">
+    <section class="container clearfix">
       <async-content :loaded="loaded">
         <article data-count="2-1" class="single" itemscope="" itemtype="http://schema.org/NewsArticle">
           <div class="single_post">
@@ -94,8 +94,6 @@
         <van-tab title="" disabled>
         </van-tab>
 
-        <van-tab title="" disabled>
-        </van-tab>
       </van-tabs>
     </section>
     </div>

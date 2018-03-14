@@ -33,6 +33,7 @@ module.exports = {
   ],
   modules: [
     '@nuxtjs/axios',
+    '@nuxtjs/sitemap',
     ['@nuxtjs/google-adsense', {
       id: 'ca-pub-8641920503885775'
     }],
@@ -107,6 +108,16 @@ module.exports = {
           return `/baca/${post.slug}`
         })
       })
+    }
+  },
+  sitemap: {
+    routes (callback) {
+      axios.get('http://jabar.pojoksatu.id/wp-json/wp/v2/posts?categories=6')
+      .then(res => {
+        let routes = res.data.map(post => '/baca/' + post.slug)
+        callback(null, routes)
+      })
+      .catch(callback)
     }
   },
   loading: { color: '#3B8070' },
