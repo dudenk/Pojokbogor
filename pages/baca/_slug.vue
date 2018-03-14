@@ -58,7 +58,13 @@
               <img class="fullsingle" data-cfsrc="" :title="post.title.rendered" :alt="post.title.rendered" :src="post.featured_image_src" scale="0">
               <p class="wp-caption-text">{{ post.better_featured_image.caption }} </p>
             </div>
-            <div class="content" v-html="post.content.rendered">
+            <div class="content">
+              <div v-for="(content,p) of post.content.rendered.split('</p>')" :key="p">
+                <div v-html="content"> </div>
+                <div v-if="p === 1">
+                  <adsbygoogle ad-slot="8596483357" ad-layout="in-article" ad-format="fluid" />
+                </div>
+              </div>
             </div>
             <div class="post_tag text" v-html="theTags()"></div>
             <!-- <adsbygoogle ad-slot="8596483357" ad-layout="in-article" ad-format="fluid" /> -->
