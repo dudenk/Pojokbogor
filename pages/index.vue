@@ -30,9 +30,8 @@
               src="http://pojoksatu.pojokiklan.net/?wpproadszoneid=348"
               style="width: 100%; min-height: 90px; background:#fff; z-index:2"
             />
-            <div v-if="index == 4" style="margin-bottom:150px;" class="clearfix" >
-
-            </div>
+            <adsbygoogle v-if="i === 10" ad-slot="1364860599" ad-layout-key="-fe+69+39-ji+nt" ad-format="fluid" />
+            <adsbygoogle v-if="i === 15" ad-slot="1364860599" ad-layout-key="-fe+69+39-ji+nt" ad-format="fluid" />
           </div>
         </async-content>
       </div>
