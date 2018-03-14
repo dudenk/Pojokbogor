@@ -76,6 +76,7 @@
             <adsbygoogle ad-slot="1364860599" ad-layout-key="-fe+69+39-ji+nt" ad-format="fluid" />
             <!-- <div class="fb-comments" :data-href="postUrl" data-numposts="5"></div> -->
           </div>
+          <script type="application/ld+json" v-text="jsonld"></script>
         </article>
       </async-content>
     </section>
@@ -138,6 +139,18 @@ export default {
     },
     keyWords: function () {
       return this.post.title.rendered
+    },
+    jsonld () {
+      var ajson = '{ "@context": "http://schema.org", "@type": "NewsArticle", "mainEntityOfPage": { "@type": "WebPage",  "@id": "https://google.com/article" },'
+      ajson += '"headline": "' + this.post.title.rendered + '",'
+      ajson += '"image": ["' + this.post.featured_image_src + '"],'
+      ajson += '"datePublished": "' + this.post.date + '",'
+      ajson += '"dateModified": "' + this.post.modified + '",'
+      ajson += '"author": { "@type": "Person", "name": "' + this.post.authorname + '"},'
+      ajson += '"publisher": { "@type": "Organization", "name": "Pojoksatu.id", "logo": { "@type": "ImageObject", "url": "http://pojoksatu.id/wp-content/uploads/2017/04/logo_dekstop.png" }},'
+      ajson += '"description": "' + striptags(this.post.excerpt.rendered) + '"'
+      ajson += '}'
+      return ajson
     }
   },
   data () {
