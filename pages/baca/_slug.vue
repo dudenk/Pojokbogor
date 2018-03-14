@@ -67,7 +67,6 @@
               </div>
             </div>
             <div class="post_tag text" v-html="theTags()"></div>
-            <!-- <adsbygoogle ad-slot="8596483357" ad-layout="in-article" ad-format="fluid" /> -->
             <adsbygoogle ad-slot="1364860599" ad-layout-key="-fe+69+39-ji+nt" ad-format="fluid" />
             <!-- <div class="fb-comments" :data-href="postUrl" data-numposts="5"></div> -->
           </div>
@@ -125,51 +124,22 @@ export default {
     postSumnew,
     postSummary
   },
-  /* beforeCreate: function (to) {
-    this.$axios.get('http://jabar.pojoksatu.id/wp-json/wp/v2/posts/?slug=' + this.$route.params.slug)
-      .then(json => {
-        //console.log(json.data[0])
-        this.post = json.data[0]
-        this.loaded = true
-      })
-  }, */
   computed: {
     post () {
       return this.$store.state.post
     },
     postUrl: function () {
-      return 'http://pojokbogor.herokuapp.com/baca/' + this.post.slug
+      return 'http://bogor.pojoksatu.id/baca/' + this.post.slug
     },
     keyWords: function () {
       return this.post.title.rendered
-    },
-    /* postLoader: function () {
-      let dataR = this.createWpLoader('http://jabar.pojoksatu.id/wp-json/wp/v2/posts', {
-      // embed: false,
-        queryParams: ['categories=6', 'per_page=5', 'tags=' + this.post.tags]
-      })
-      console.log(dataR.pages)
-      //this.loaded = dataR.pagesLoaded
-      return dataR
-    }*/
+    }
   },
   data () {
     return {
       // queryParams can contain any query paramater key and value defined by the WP REST API
       loaded: false,
       postLoader: null
-      /*post: {
-        authorname: '',
-        title: {
-          rendered: ''
-        },
-        excerpt: {},
-        content: {},
-        pure_taxonomies: {
-          tags:[]
-        },
-        better_featured_image: {}
-      }*/
     }
   },
   head () {
