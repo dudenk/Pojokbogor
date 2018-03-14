@@ -76,7 +76,6 @@
             <adsbygoogle ad-slot="1364860599" ad-layout-key="-fe+69+39-ji+nt" ad-format="fluid" />
             <!-- <div class="fb-comments" :data-href="postUrl" data-numposts="5"></div> -->
           </div>
-          <script type="application/ld+json" v-text="jsonld"></script>
         </article>
       </async-content>
     </section>
@@ -199,7 +198,11 @@ export default {
           property: 'og:description',
           content: striptags(this.post.excerpt.rendered)
         }
-      ]
+      ],
+      script: [
+        { innerHTML: this.jsonld, type: 'application/ld+json' }
+      ],
+      __dangerouslyDisableSanitizers: ['script']
     }
   },
   watch: {
