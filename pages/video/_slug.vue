@@ -111,7 +111,7 @@ export default {
   }
 }
 </script>
-<style>
+<style scoped>
 iframe {
   min-height: 350px;
 }

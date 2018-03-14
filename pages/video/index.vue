@@ -29,6 +29,10 @@
                 <h3 class="title post-title"> <a href="#" v-html="post.snippet.title"></a> </h3>
               </van-col>
             </van-row>
+            <adsbygoogle v-if="index === 1" ad-slot="3377560668" ad-layout-key="-8j+1y-dr+ea+fj" ad-format="fluid" />
+            <adsbygoogle v-if="index === 6" ad-slot="3377560668" ad-layout-key="-8j+1y-dr+ea+fj" ad-format="fluid" />
+            <adsbygoogle v-if="index === 11" ad-slot="3377560668" ad-layout-key="-8j+1y-dr+ea+fj" ad-format="fluid" />
+            <adsbygoogle v-if="index === 16" ad-slot="3377560668" ad-layout-key="-8j+1y-dr+ea+fj" ad-format="fluid" />
         </div>
       </div>
     </section>
