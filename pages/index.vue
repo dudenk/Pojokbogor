@@ -21,11 +21,15 @@
       <van-nav-bar title="Berita Terkini" />
       <div v-for="(page,index) of postLoader.pages" :key="index">
         <async-content :loaded="page.loaded">
-          <div v-for="(post,index) of page.content" :key="index" >
+          <div v-for="(post,i) of page.content" :key="i" >
             <article class="list horizontal" itemscope="" itemtype="http://schema.org/NewsArticle">
               <post-summary imgSize="thumbnail" :post="post" class="post-summary"></post-summary>
             </article>
             <div class="clear clearfix"> </div>
+            <iframe v-if="i === 5"
+              src="http://pojoksatu.pojokiklan.net/?wpproadszoneid=348"
+              style="width: 100%; min-height: 90px; background:#fff; z-index:2"
+            />
             <div v-if="index == 4" style="margin-bottom:150px;" class="clearfix" >
 
             </div>

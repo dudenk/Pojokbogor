@@ -61,9 +61,31 @@
             <div class="content" v-html="post.content.rendered">
             </div>
             <div class="post_tag text" v-html="theTags()"></div>
+            <!-- <adsbygoogle ad-slot="8596483357" ad-layout="in-article" ad-format="fluid" /> -->
+            <adsbygoogle ad-slot="1364860599" ad-layout-key="-fe+69+39-ji+nt" ad-format="fluid" />
+            <!-- <div class="fb-comments" :data-href="postUrl" data-numposts="5"></div> -->
           </div>
         </article>
       </async-content>
+    </section>
+    <section class="related" v-if="postLoader">
+      <van-tabs>
+        <van-tab title="Artikel Terkait">
+          <async-content :loaded="postLoader.loaded">
+            <div v-for="(post,ip) of postLoader.content" :key="ip" >
+              <article class="list">
+                <post-sumnew :post="post" class="post-summary"></post-sumnew>
+              </article>
+            </div>
+          </async-content>
+        </van-tab>
+
+        <van-tab title="" disabled>
+        </van-tab>
+
+        <van-tab title="" disabled>
+        </van-tab>
+      </van-tabs>
     </section>
     </div>
   </div>
@@ -74,7 +96,8 @@ import wpMixin from '~/plugins/wp-mixin'
 import striptags from 'striptags'
 import asyncContent from '~/components/async-content.vue'
 import postSummary from '~/components/post-summary.vue'
-import { Icon } from 'vant'
+import postSumnew from '~/components/post-sumnew.vue'
+import { Icon, Tab, Tabs } from 'vant'
 
 export default {
   /* fetch ({ store, params }) {
@@ -90,7 +113,10 @@ export default {
   mixins: [wpMixin],
   components: {
     [Icon.name]: Icon,
+    [Tab.name]: Tab,
+    [Tabs.name]: Tabs,
     asyncContent,
+    postSumnew,
     postSummary
   },
   /* beforeCreate: function (to) {
@@ -110,12 +136,22 @@ export default {
     },
     keyWords: function () {
       return this.post.title.rendered
-    }
+    },
+    /* postLoader: function () {
+      let dataR = this.createWpLoader('http://jabar.pojoksatu.id/wp-json/wp/v2/posts', {
+      // embed: false,
+        queryParams: ['categories=6', 'per_page=5', 'tags=' + this.post.tags]
+      })
+      console.log(dataR.pages)
+      //this.loaded = dataR.pagesLoaded
+      return dataR
+    }*/
   },
   data () {
     return {
       // queryParams can contain any query paramater key and value defined by the WP REST API
       loaded: false,
+      postLoader: null
       /*post: {
         authorname: '',
         title: {
@@ -172,7 +208,24 @@ export default {
       ]
     }
   },
+  watch: {
+    // call again the method if the route changes
+    '$route': 'getRelated'
+  },
+  created: function () {
+    this.getRelated()
+  },
   methods: {
+    getRelated () {
+      this.$axios.get('http://jabar.pojoksatu.id/wp-json/bogor/v1/related/?slug=' + this.$route.params.slug)
+        .then(response => {
+          var vd = response.data
+          // JSON responses are automatically parsed.
+          if (vd) {
+            this.postLoader = vd
+          }
+        })
+    },
     postDate: function (theDate) {
       if (theDate) {
         this.loaded = true
@@ -186,7 +239,7 @@ export default {
       for ( var index = 0; index < mentah.length; ++index) {
         var p = this.post.pure_taxonomies.tags[index]
         if (typeof p.name !== 'undefined'){
-          hasil += p.name + ', '
+          hasil += ' #' + p.name
         }
       }
       return hasil

@@ -56,6 +56,14 @@ export default {
       dataYoutube: {}
     }
   },
+  head () {
+    return {
+      title: 'Video',
+      meta: [
+        { hid: 'description', name: 'description', content: 'Berita video dan kabar pilihan terkini serta terbaru seputar peristiwa, kuliner, belanja, dan wisata di Bogor.' }
+      ]
+    }
+  },
   created: function () {
     this.$axios.get('https://www.googleapis.com/youtube/v3/playlistItems/?maxResults=25&playlistId=PL8OFoqLPiw0RxqptZSRzjBIuFbcucKD2e&part=snippet%2CcontentDetails&key=AIzaSyCcCSUTmmYXxKN0ClWABQBHhhulEpjUa1k')
       .then(response => {

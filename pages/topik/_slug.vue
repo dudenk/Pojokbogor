@@ -21,10 +21,16 @@
       <van-nav-bar :title="dataTags.name" />
       <div v-for="(page,index) of postLoader.pages" :key="index">
         <async-content :loaded="page.loaded">
-          <div v-for="(post,index) of page.content" :key="index" >
+          <div v-for="(post,i) of page.content" :key="i" >
             <article class="list" itemscope="" itemtype="http://schema.org/NewsArticle">
               <post-summary imgSize="thumbnail" :post="post" class="post-summary"></post-summary>
             </article>
+            <iframe v-if="i === 5"
+              src="http://pojoksatu.pojokiklan.net/?wpproadszoneid=348"
+              style="width: 100%; min-height: 90px; background:#fff; z-index:2"
+            />
+            <adsbygoogle v-if="i === 10" ad-slot="1364860599" ad-layout-key="-fe+69+39-ji+nt" ad-format="fluid" />
+            <adsbygoogle v-if="i === 15" ad-slot="1364860599" ad-layout-key="-fe+69+39-ji+nt" ad-format="fluid" />
           </div>
         </async-content>
       </div>

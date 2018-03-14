@@ -9,7 +9,8 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Berita dan kabar pilihan terkini serta terbaru seputar peristiwa, kuliner, belanja, dan wisata di Bogor.' }
+      { hid: 'description', name: 'description', content: 'Berita dan kabar pilihan terkini serta terbaru seputar peristiwa, kuliner, belanja, dan wisata di Bogor.' },
+      { hid: 'fb:app_id', property: 'fb:app_id', content: '1975447592717295' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/icons/favicon.png' }
@@ -27,10 +28,14 @@ module.exports = {
   },
   plugins: [
     { src: '~/plugins/wp-mixin', ssr: true },
-    { src: '~/plugins/social', ssr: true }
+    { src: '~/plugins/social', ssr: false },
+    // { src: '~/plugins/fb-sdk', ssr: false }
   ],
   modules: [
     '@nuxtjs/axios',
+    ['@nuxtjs/google-adsense', {
+      id: 'ca-pub-8641920503885775'
+    }]
   ],
   fontawesome: {
     component: 'fa'
