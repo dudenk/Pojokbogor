@@ -33,25 +33,15 @@ export default {
   data () {
     return {
       error: null,
-      beritaKabBogor: null
+      beritaKabBogor: this.createMyRequest('http://jabar.pojoksatu.id/wp-json/bogor/v1/kab_bogor', {
+        mapper: this.noMapper
+      })
     }
-  },
-  watch: {
-    // call again the method if the route changes
-    '$route': 'getPostLoader'
-  },
-  created: function () {
-    this.getPostLoader()
   },
   methods: {
     postDate2: function (theDate) {
       this.$moment.locale('id')
       return this.$moment(theDate).startOf('minutes').fromNow()
-    },
-    getPostLoader () {
-      this.beritaKabBogor = this.createMyRequest('http://jabar.pojoksatu.id/wp-json/bogor/v1/kab_bogor', {
-        mapper: this.noMapper
-      })
     }
   }
 }

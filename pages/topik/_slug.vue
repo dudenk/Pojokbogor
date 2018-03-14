@@ -76,11 +76,7 @@ export default {
     kabBogor
   },
   async fetch (vm) {
-    //console.log(vm)
     vm.store.dispatch('getTag', vm.params.slug)
-    //let { data } = await vm.$axios.get('http://jabar.pojoksatu.id/wp-json/wp/v2/tags/?slug=' + vm.params.slug)
-    //vm.store.commit('setCurrentTag', data)
-    //console.log (data)
   },
   computed: {
     dataTags () {
@@ -91,10 +87,12 @@ export default {
   data () {
     return {
       error: null,
-      //dataTags: {},
-      // queryParams can contain any query paramater key and value defined by the WP REST API
-      postLoader: null,
-      headlineLoader: null,
+      postLoader: this.createWpLoader('http://jabar.pojoksatu.id/wp-json/wp/v2/posts', {
+        queryParams: ['categories=6', 'per_page=20', 'tags=' + this.$store.state.tag.id]
+      }),
+      headlineLoader: this.createWpLoader('http://jabar.pojoksatu.id/wp-json/wp/v2/posts', {
+        queryParams: ['categories=6', 'per_page=3', 'filter[meta_key]=headline', 'filter[meta_value]=1', 'tags=' + this.$store.state.tag.id]
+      }),
       KotaKab: null
     }
   },
@@ -115,7 +113,6 @@ export default {
   },
   methods: {
     setData () {
-      console.log( this.$route )
       this.KotaKab = this.$route.params.slug
     },
     postDate2: function (theDate) {
@@ -124,11 +121,9 @@ export default {
     },
     getPostLoader (tags) {
       this.postLoader = this.createWpLoader('http://jabar.pojoksatu.id/wp-json/wp/v2/posts', {
-        // embed: false,
         queryParams: ['categories=6', 'per_page=20', 'tags=' + tags.id]
       })
       this.headlineLoader = this.createWpLoader('http://jabar.pojoksatu.id/wp-json/wp/v2/posts', {
-        // embed: false,
         queryParams: ['categories=6', 'per_page=3', 'filter[meta_key]=headline', 'filter[meta_value]=1', 'tags=' + tags.id]
       })
     }

@@ -28,7 +28,7 @@ module.exports = {
   },
   plugins: [
     { src: '~/plugins/wp-mixin', ssr: true },
-    { src: '~/plugins/social', ssr: false },
+    { src: '~/plugins/social', ssr: true },
     // { src: '~/plugins/fb-sdk', ssr: false }
   ],
   modules: [
