@@ -11,11 +11,13 @@
             <van-row gutter="20" v-if="post" class="img" >
               <van-col span="24">
                 <div class="post-img">
-                  <a :href="videoURL(post.contentDetails.videoId)" title="post.snippet.title">
+                  <!-- <a :href="videoURL(post.contentDetails.videoId)" title="post.snippet.title">-->
+                  <router-link :to="{ name: 'video-slug', params: { slug: post.contentDetails.videoId }}">
                     <div class="image-container" itemprop="image">
                       <img :src="post.snippet.thumbnails.medium.url" class="thumbnail" alt="" scale="0">
                     </div>
-                  </a>
+                  </router-link>
+                  <!-- </a> -->
                 </div>
               </van-col>
             </van-row>
@@ -24,7 +26,7 @@
                 <div class="post-info">
                   <span class="thetime updated" itemprop="datePublished" :content="post.snippet.publishedAt" style="display:block;">{{ postDate2(post.snippet.publishedAt) }}</span>
                 </div>
-                <h3 class="title post-title"> <a :href="videoURL(post.contentDetails.videoId)" v-html="post.snippet.title"></a> </h3>
+                <h3 class="title post-title"> <a href="#" v-html="post.snippet.title"></a> </h3>
               </van-col>
             </van-row>
         </div>

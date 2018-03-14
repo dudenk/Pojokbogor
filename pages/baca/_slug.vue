@@ -66,7 +66,13 @@
                 </div>
               </div>
             </div>
-            <div class="post_tag text" v-html="theTags()"></div>
+            <div class="post_tag text">
+              <router-link v-for="(tag,it) of theTags()" :key="it"  :to="{ name: 'topik-slug', params: { slug: tag.slug }, query: { id:tag.term_id }}">
+                <van-tag plain mark type="primary">
+                   #{{tag.name}}
+                </van-tag>
+              </router-link>
+            </div>
             <adsbygoogle ad-slot="1364860599" ad-layout-key="-fe+69+39-ji+nt" ad-format="fluid" />
             <!-- <div class="fb-comments" :data-href="postUrl" data-numposts="5"></div> -->
           </div>
@@ -102,7 +108,7 @@ import striptags from 'striptags'
 import asyncContent from '~/components/async-content.vue'
 import postSummary from '~/components/post-summary.vue'
 import postSumnew from '~/components/post-sumnew.vue'
-import { Icon, Tab, Tabs } from 'vant'
+import { Icon, Tab, Tabs, Tag } from 'vant'
 
 export default {
   /* fetch ({ store, params }) {
@@ -120,6 +126,7 @@ export default {
     [Icon.name]: Icon,
     [Tab.name]: Tab,
     [Tabs.name]: Tabs,
+    [Tag.name]: Tag,
     asyncContent,
     postSumnew,
     postSummary
@@ -210,12 +217,12 @@ export default {
       return this.$moment(theDate).format('LLLL')
     },
     theTags: function() {
-      var hasil = ''
+      var hasil = []
       var mentah = this.post.pure_taxonomies.tags
       for ( var index = 0; index < mentah.length; ++index) {
         var p = this.post.pure_taxonomies.tags[index]
         if (typeof p.name !== 'undefined'){
-          hasil += ' #' + p.name
+          hasil.push(p)
         }
       }
       return hasil
@@ -231,5 +238,9 @@ h1.entry-title {
   letter-spacing: normal;
   line-height: 25px;
   font-weight: 400;
+}
+.van-tag {
+  font-size: 12px;
+  margin:3px;
 }
 </style>
