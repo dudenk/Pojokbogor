@@ -35,6 +35,9 @@ module.exports = {
     '@nuxtjs/axios',
     ['@nuxtjs/google-adsense', {
       id: 'ca-pub-8641920503885775'
+    }],
+    ['@nuxtjs/google-analytics', {
+      id: 'UA-57456405-2'
     }]
   ],
   fontawesome: {
