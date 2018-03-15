@@ -11,7 +11,7 @@
     <van-col span="8">
       <router-link :to="{ name: 'baca-slug', params: { slug: post.slug }}" :title="post.title">
         <div class="image-container" itemprop="image">
-          <img width="105" height="80" :src="imageSource" class="attachment-smallthumb size-smallthumb wp-post-image" alt="" scale="0">
+          <img width="110" :src="imageSource" class="wp-post-image" alt="" scale="0">
         </div>
       </router-link>
     </van-col>
