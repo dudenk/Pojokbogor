@@ -119,11 +119,14 @@ export default {
   methods: {
     getActiveMenu() {
       //console.log(this.$route.name)
-      if (this.$route.name === '/') {
+      if (this.$route.name === 'index') {
         this.active = 0
       }
-      else if (this.$route.name === 'video') {
+      else if (this.$route.name === 'populer') {
         this.active = 1
+      }
+      else if (this.$route.name === 'video') {
+        this.active = 2
       }
       else if (this.$route.name === 'topik-slug') {
         this.active = null
