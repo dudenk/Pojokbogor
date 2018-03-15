@@ -108,6 +108,8 @@ import postSummary from '~/components/post-summary.vue'
 import postSumnew from '~/components/post-sumnew.vue'
 import { Icon, Tab, Tabs, Tag } from 'vant'
 
+const Entities = require('html-entities').AllHtmlEntities;
+
 export default {
   /* fetch ({ store, params }) {
     store.dispatch('getPost', params.slug)
@@ -161,12 +163,12 @@ export default {
   },
   head () {
     return {
-      title: this.post.title.rendered,
+      title: Entities.decode(this.post.title.rendered),
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content: striptags(this.post.excerpt.rendered)
+          content: striptags(Entities.decode(this.post.excerpt.rendered))
         },
         {
           hid: 'keywords',
@@ -176,7 +178,7 @@ export default {
         {
           hid: 'og:title',
           property: 'og:title',
-          content: this.post.title.rendered
+          content: Entities.decode(this.post.title.rendered)
         },
         {
           hid: 'og:type',
@@ -196,7 +198,7 @@ export default {
         {
           hid: 'og:description',
           property: 'og:description',
-          content: striptags(this.post.excerpt.rendered)
+          content: striptags(Entities.decode(this.post.excerpt.rendered))
         }
       ],
       script: [

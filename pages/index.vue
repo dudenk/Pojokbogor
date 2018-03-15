@@ -77,7 +77,11 @@ export default {
       title: 'Berita dan kabar pilihan',
       meta: [
         { hid: 'description', name: 'description', content: 'Berita dan kabar pilihan terkini serta terbaru seputar peristiwa, kuliner, belanja, dan wisata di Bogor.' }
-      ]
+      ],
+      script: [
+        { innerHTML: '{"@context":"http://schema.org","@type":"WebSite","url":"http://bogor.pojoksatu.id"}', type: 'application/ld+json' }
+      ],
+      __dangerouslyDisableSanitizers: ['script']
     }
   },
   methods: {

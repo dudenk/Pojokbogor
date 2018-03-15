@@ -17,7 +17,9 @@ module.exports = {
     ],
     script: [
       // { src: 'https://use.fontawesome.com/releases/v5.0.7/js/all.js' }
-    ]
+      // { innerHTML: '{"@context":"http://schema.org","@type":"WebSite","url":"http://bogor.pojoksatu.id"}', type: 'application/ld+json' }
+    ],
+    __dangerouslyDisableSanitizers: ['script']
   },
   css: [
     'vant/lib/vant-css/index.css',
