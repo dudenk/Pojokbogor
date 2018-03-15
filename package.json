@@ -1,9 +1,12 @@
 {
   "name": "pojokbogor",
-  "version": "1.2",
+  "version": "1.2.0",
   "description": "Nuxt.js project",
   "author": "Gun Gun Gumilar",
   "private": true,
+  "engines": {
+    "node": "9.6.1"
+  },
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
