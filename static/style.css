@@ -48,9 +48,7 @@ a {
   color: #111;
 }
 img {
-    max-width: 100%;
-    width: auto !important;
-    height: auto !important;
+  max-width: 100%;
 }
 span.text {
   font-size: 12px;
