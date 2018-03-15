@@ -8,12 +8,10 @@
             <article class="list" itemscope="" itemtype="http://schema.org/NewsArticle">
               <post-sumnew :post="post" class="post-populer"></post-sumnew>
             </article>
-            <iframe v-if="index === 0 && i === 5"
-              src="http://pojoksatu.pojokiklan.net/?wpproadszoneid=348"
-              style="width: 100%; height: 90px; background:#fff; z-index:2"
-            />
-            <adsbygoogle v-if="i === 10" ad-slot="1364860599" ad-layout-key="-fe+69+39-ji+nt" ad-format="fluid" />
-            <adsbygoogle v-if="i === 15" ad-slot="1364860599" ad-layout-key="-fe+69+39-ji+nt" ad-format="fluid" />
+            <adsbygoogle v-if="i === 4" ad-slot="1364860599" ad-layout-key="-fe+69+39-ji+nt" ad-format="fluid" />
+            <adsbygoogle v-if="i === 9" ad-slot="1364860599" ad-layout-key="-fe+69+39-ji+nt" ad-format="fluid" />
+            <adsbygoogle v-if="i === 14" ad-slot="1364860599" ad-layout-key="-fe+69+39-ji+nt" ad-format="fluid" />
+            <adsbygoogle v-if="i === 19" ad-slot="1364860599" ad-layout-key="-fe+69+39-ji+nt" ad-format="fluid" />
           </div>
         </async-content>
 
@@ -36,7 +34,7 @@ import postSumnew from '~/components/post-sumnew.vue'
 import { NavBar, NoticeBar, Swipe, SwipeItem, Button  } from 'vant';
 
 export default {
-  name: 'Topik',
+  name: 'Populer',
   mixins: [wpMixin],
   components: {
     asyncContent,

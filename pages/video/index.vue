@@ -26,7 +26,7 @@
                 <div class="post-info">
                   <span class="thetime updated" itemprop="datePublished" :content="post.snippet.publishedAt" style="display:block;">{{ postDate2(post.snippet.publishedAt) }}</span>
                 </div>
-                <h3 class="title post-title"> <a href="#" v-html="post.snippet.title"></a> </h3>
+                <h3 class="title post-title"> <router-link :to="{ name: 'video-slug', params: { slug: post.contentDetails.videoId }}" v-html="post.snippet.title"> </router-link> </h3>
               </van-col>
             </van-row>
             <adsbygoogle v-if="index === 1" ad-slot="3377560668" ad-layout-key="-8j+1y-dr+ea+fj" ad-format="fluid" />
