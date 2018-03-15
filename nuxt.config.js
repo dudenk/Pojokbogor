@@ -10,7 +10,7 @@ module.exports = {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: 'Berita dan kabar pilihan terkini serta terbaru seputar peristiwa, kuliner, belanja, dan wisata di Bogor.' },
-      { hid: 'fb:app_id', property: 'fb:app_id', content: '1975447592717295' }
+      { hid: 'fb:app_id', property: 'fb:app_id', content: '1975447592717295' },
       { hid: 'fb:pages', property: 'fb:pages', content: '377301039140344' }
     ],
     link: [
