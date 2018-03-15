@@ -81,7 +81,7 @@
     </section>
     <section class="related" v-if="postLoader">
       <van-tabs>
-        <van-tab title="Artikel Terkait">
+        <van-tab title="Berita Terkait">
           <async-content :loaded="postLoader.loaded">
             <div v-for="(post,ip) of postLoader.content" :key="ip" >
               <article class="list">
@@ -139,7 +139,7 @@ export default {
       return 'http://bogor.pojoksatu.id/baca/' + this.post.slug
     },
     keyWords: function () {
-      return this.post.title.rendered
+      return 'Bogor,' + this.post.title.rendered.split(' ').slice(0,6)
     },
     jsonld () {
       var ajson = '{ "@context": "http://schema.org", "@type": "NewsArticle", "mainEntityOfPage": { "@type": "WebPage",  "@id": "https://google.com/article" },'
