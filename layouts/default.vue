@@ -4,7 +4,7 @@
       <div slot="left">
         <div class="logo">
           <router-link to="/">
-            <img src="/images/logo-mobile.png" alt="Pojok Bogor" class="img-logo" width="150" height="31" scale="0">
+            <img src="/images/logo-mobile.png" alt="Pojok Bogor" class="img-logo" width="150" scale="0">
           </router-link>
         </div>
       </div>
@@ -165,7 +165,7 @@ export default {
 
 <style scoped>
 .van-nav-bar {
-  line-height: 20px;
+  line-height: 26px;
 }
 .van-goods-action__mini-btn {
   min-width: 14.2%;
