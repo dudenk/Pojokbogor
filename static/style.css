@@ -100,6 +100,9 @@ h1.single-title {
     padding-bottom: 5px;
     border-bottom: 1px solid #999;
 }
+.single img {
+  height: auto !important;
+}
 span.thecategory {
   padding-right: 10px;
 }
