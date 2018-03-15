@@ -112,7 +112,7 @@ module.exports = {
   },
   sitemap: {
     routes (callback) {
-      axios.get('http://jabar.pojoksatu.id/wp-json/wp/v2/posts?categories=6')
+      axios.get('http://jabar.pojoksatu.id/wp-json/wp/v2/posts?categories=6&per_page=100')
       .then(res => {
         let routes = res.data.map(post => '/baca/' + post.slug)
         callback(null, routes)

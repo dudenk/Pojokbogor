@@ -8,7 +8,7 @@
             <div class="breadcrumb">
             </div>
             <div class="single-header">
-              <h1 class="title single-title" v-html="post.title.rendered"></h1>
+              <h1 class="title single-title" v-html="post.title.rendered"> </h1>
               <div class="post-info">
                 <span class="thetime updated text" itemprop="datePublished" :content="post.date">
                   <van-icon name="clock" style="vertical-align: text-top;" /> {{ postDate(post.date) }}
@@ -224,9 +224,6 @@ export default {
         })
     },
     postDate: function (theDate) {
-      if (theDate) {
-        this.loaded = true
-      }
       this.$moment.locale('id')
       return this.$moment(theDate).format('LLLL')
     },
@@ -242,6 +239,9 @@ export default {
       return hasil
     },
     shareUrl: function (slug) {
+      if (slug) {
+        this.loaded = true
+      }
       return this.postUrl
     }
   }
