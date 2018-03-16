@@ -127,6 +127,7 @@ export default {
   methods: {
     getActiveMenu() {
       //console.log(this.$route.name)
+      this.active2 = null
       if (this.$route.name === 'index') {
         this.active = 0
       }
@@ -156,7 +157,6 @@ export default {
       }
       else {
         this.active = null
-        this.active2 = null
       }
       this.$axios.get('https://jabar.pojoksatu.id/wp-json/bogor/v1/topik')
         .then(response => {
