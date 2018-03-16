@@ -54,7 +54,7 @@ module.exports = {
           disable: true
       }
     }
-  },Í
+  },
   axios: {
     baseURL: undefined,
     /**
