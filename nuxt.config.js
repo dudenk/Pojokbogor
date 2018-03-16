@@ -52,6 +52,14 @@ module.exports = {
       allowLocalhostAsSecureOrigin: true,
       welcomeNotification: {
           disable: true
+      },
+      promptOptions: {
+        /* actionMessage limited to 90 characters */
+        actionMessage: "PojokBogor boleh mengirimkan berita pilihan terbaik untuk Anda",
+        /* acceptButtonText limited to 15 characters */
+        acceptButtonText: "Ya, Boleh",
+        /* cancelButtonText limited to 15 characters */
+        cancelButtonText: "Nanti Saja"
       }
     }
   },
