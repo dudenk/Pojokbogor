@@ -35,6 +35,8 @@ module.exports = {
     // { src: '~/plugins/fb-sdk', ssr: false }
   ],
   modules: [
+    '@nuxtjs/onesignal',
+    '@nuxtjs/pwa',
     '@nuxtjs/axios',
     '@nuxtjs/sitemap',
     ['@nuxtjs/google-adsense', {
@@ -44,8 +46,14 @@ module.exports = {
       id: 'UA-57456405-2'
     }]
   ],
-  fontawesome: {
-    component: 'fa'
+  oneSignal: {
+  init: {
+      appId: '1eb37d5c-c31c-4626-9e35-51bb284ffd7e',
+      allowLocalhostAsSecureOrigin: true,
+      welcomeNotification: {
+          disable: true
+      }
+    }
   },
   axios: {
     baseURL: undefined,

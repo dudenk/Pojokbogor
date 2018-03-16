@@ -41,16 +41,6 @@
       <nuxt/>
     </div>
     <div class="main-footer">
-      <div class="meta">
-        <div v-if="post && this.$route.name === 'baca-slug' ">
-          <h1 v-html="post.title.rendered"></h1>
-          <!-- <h2 v-html="post.excerpt.rendered"></h2> -->
-        </div>
-        <div v-if="this.$route.name === 'index' ">
-          <h1>Pojokbogor.com</h1>
-          <h2>Berita dan kabar pilihan terkini serta terbaru seputar peristiwa, kuliner, belanja, dan wisata di Bogor.</h2>
-        </div>
-      </div>
       <van-goods-action>
         <van-goods-action-mini-btn icon="qr" text="Pojoksatu" href="http://pojoksatu.id" target="_blank" />
         <van-goods-action-mini-btn icon="qr" text="Jabar" href="http://jabar.pojoksatu.id" target="_blank" />
@@ -60,6 +50,17 @@
         <van-goods-action-mini-btn icon="qr" text="Bandung" href="http://bandung.pojoksatu.id" target="_blank" />
         <van-goods-action-mini-btn icon="qr" text="Sulsel" href="http://sulsel.pojoksatu.id" target="_blank" />
       </van-goods-action>
+
+      <div class="meta">
+        <div v-if="post && this.$route.name === 'baca-slug' ">
+          <h1 v-html="post.title.rendered"></h1>
+          <h2 v-html="postExcerpt"> </h2>
+        </div>
+        <div v-if="this.$route.name === 'index' ">
+          <h1>Pojokbogor.com</h1>
+          <h2>Berita dan kabar pilihan terkini serta terbaru seputar peristiwa, kuliner, belanja, dan wisata di Bogor.</h2>
+        </div>
+      </div>
     </div>
     <van-tabbar v-model="active">
       <van-tabbar-item icon="wap-home" to="/">
@@ -115,6 +116,13 @@ export default {
     post () {
       return this.$store.state.post
     },
+    postExcerpt () {
+      if ( this.post.excerpt.rendered.substring(0, 13) === '<p>POJOKJABAR' ) {
+        return this.post.excerpt.rendered.substring(19, 180)
+      } else {
+        return this.post.excerpt.rendered.substring(3, 170)
+      }
+    }
   },
   methods: {
     getActiveMenu() {
