@@ -54,7 +54,7 @@ module.exports = {
           disable: true
       }
     }
-  },
+  },Í
   axios: {
     baseURL: undefined,
     /**
@@ -113,7 +113,7 @@ module.exports = {
 
   generate: {
     routes: function() {
-      return axios.get('http://jabar.pojoksatu.id/wp-json/wp/v2/posts/')
+      return axios.get('https://jabar.pojoksatu.id/wp-json/wp/v2/posts/')
       .then((res) => {
         return _.map(res.data, function(post, key) {
           return `/baca/${post.slug}`
@@ -123,7 +123,7 @@ module.exports = {
   },
   sitemap: {
     routes (callback) {
-      axios.get('http://jabar.pojoksatu.id/wp-json/wp/v2/posts?categories=6&per_page=100')
+      axios.get('https://jabar.pojoksatu.id/wp-json/wp/v2/posts?categories=6&per_page=100')
       .then(res => {
         let routes = res.data.map(post => '/baca/' + post.slug)
         callback(null, routes)

@@ -57,7 +57,7 @@ export default {
   async fetch (vm) {
     //console.log(vm)
     //vm.store.dispatch('getVideo', vm.params.slug)
-    //let { data } = await vm.$axios.get('http://jabar.pojoksatu.id/wp-json/wp/v2/posts/?slug=' + vm.params.slug)
+    //let { data } = await vm.$axios.get('https://jabar.pojoksatu.id/wp-json/wp/v2/posts/?slug=' + vm.params.slug)
     //vm.store.commit('setCurrentPost', data)
     //console.log (data)
   },
@@ -99,7 +99,7 @@ export default {
     youtubeSrc: function () {
       //console.log(this)
       //var youtubeUrl = this.$router.name;
-      var youtubeUrl = 'http://www.youtube.com/embed/' + this.$route.params.slug
+      var youtubeUrl = 'https://www.youtube.com/embed/' + this.$route.params.slug
       return youtubeUrl
     },
     videoURL: function (videoId) {

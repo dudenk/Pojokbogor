@@ -41,7 +41,6 @@ const createStore = () => {
           commit('setCurrentTag', data[0])
           //let {data} = await axios.get('posts')
           //commit('setPosts', data)
-
         }
         if (isServer && params.slug) {
           let {data} = await axios.get(`v2/posts/?slug=${params.slug}`)

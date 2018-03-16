@@ -117,7 +117,7 @@ export default {
   async fetch (vm) {
     //console.log(vm)
     vm.store.dispatch('getPost', vm.params.slug)
-    //let { data } = await vm.$axios.get('http://jabar.pojoksatu.id/wp-json/wp/v2/posts/?slug=' + vm.params.slug)
+    //let { data } = await vm.$axios.get('https://jabar.pojoksatu.id/wp-json/wp/v2/posts/?slug=' + vm.params.slug)
     //vm.store.commit('setCurrentPost', data)
     //console.log (data)
   },
@@ -136,7 +136,7 @@ export default {
       return this.$store.state.post
     },
     postUrl: function () {
-      return 'http://bogor.pojoksatu.id/baca/' + this.post.slug
+      return 'https://bogor.pojoksatu.id/baca/' + this.post.slug
     },
     keyWords: function () {
       return 'Bogor,' + this.post.title.rendered.split(' ').slice(0,6)
@@ -216,7 +216,7 @@ export default {
   },
   methods: {
     getRelated () {
-      this.$axios.get('http://jabar.pojoksatu.id/wp-json/bogor/v1/related/?slug=' + this.$route.params.slug)
+      this.$axios.get('https://jabar.pojoksatu.id/wp-json/bogor/v1/related/?slug=' + this.$route.params.slug)
         .then(response => {
           var vd = response.data
           // JSON responses are automatically parsed.

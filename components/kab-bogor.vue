@@ -33,7 +33,7 @@ export default {
   data () {
     return {
       error: null,
-      beritaKabBogor: this.createMyRequest('http://jabar.pojoksatu.id/wp-json/bogor/v1/kab_bogor', {
+      beritaKabBogor: this.createMyRequest('https://jabar.pojoksatu.id/wp-json/bogor/v1/kab_bogor', {
         mapper: this.noMapper
       })
     }

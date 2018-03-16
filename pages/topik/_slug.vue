@@ -22,7 +22,7 @@
       <div v-for="(page,index) of postLoader.pages" :key="index">
         <async-content :loaded="page.loaded">
           <div v-for="(post,i) of page.content" :key="i" >
-            <article class="list" itemscope="" itemtype="http://schema.org/NewsArticle">
+            <article class="list">
               <post-summary imgSize="thumbnail" :post="post" class="post-summary"></post-summary>
             </article>
             <div v-if="index === 0 && i === 2 && KotaKab ">
@@ -87,10 +87,10 @@ export default {
   data () {
     return {
       error: null,
-      postLoader: this.createWpLoader('http://jabar.pojoksatu.id/wp-json/wp/v2/posts', {
+      postLoader: this.createWpLoader('https://jabar.pojoksatu.id/wp-json/wp/v2/posts', {
         queryParams: ['categories=6', 'per_page=20', 'tags=' + this.$store.state.tag.id]
       }),
-      headlineLoader: this.createWpLoader('http://jabar.pojoksatu.id/wp-json/wp/v2/posts', {
+      headlineLoader: this.createWpLoader('https://jabar.pojoksatu.id/wp-json/wp/v2/posts', {
         queryParams: ['categories=6', 'per_page=3', 'filter[meta_key]=headline', 'filter[meta_value]=1', 'tags=' + this.$store.state.tag.id]
       }),
       KotaKab: null
@@ -120,10 +120,10 @@ export default {
       return this.$moment(theDate).startOf('minutes').fromNow()
     },
     getPostLoader (tags) {
-      this.postLoader = this.createWpLoader('http://jabar.pojoksatu.id/wp-json/wp/v2/posts', {
+      this.postLoader = this.createWpLoader('https://jabar.pojoksatu.id/wp-json/wp/v2/posts', {
         queryParams: ['categories=6', 'per_page=20', 'tags=' + tags.id]
       })
-      this.headlineLoader = this.createWpLoader('http://jabar.pojoksatu.id/wp-json/wp/v2/posts', {
+      this.headlineLoader = this.createWpLoader('https://jabar.pojoksatu.id/wp-json/wp/v2/posts', {
         queryParams: ['categories=6', 'per_page=3', 'filter[meta_key]=headline', 'filter[meta_value]=1', 'tags=' + tags.id]
       })
     }

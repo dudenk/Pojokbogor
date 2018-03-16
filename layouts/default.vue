@@ -43,7 +43,7 @@
     <div class="main-footer">
       <van-goods-action>
         <van-goods-action-mini-btn icon="qr" text="Pojoksatu" href="http://pojoksatu.id" target="_blank" />
-        <van-goods-action-mini-btn icon="qr" text="Jabar" href="http://jabar.pojoksatu.id" target="_blank" />
+        <van-goods-action-mini-btn icon="qr" text="Jabar" href="https://jabar.pojoksatu.id" target="_blank" />
         <van-goods-action-mini-btn icon="qr" text="Bekasi" href="http://gobekasi.pojoksatu.id" target="_blank" />
         <van-goods-action-mini-btn icon="qr" text="Sumut" href="http://sumut.pojoksatu.id" target="_blank" />
         <van-goods-action-mini-btn icon="qr" text="Jogja" href="http://jogja.pojoksatu.id" target="_blank" />
@@ -158,7 +158,7 @@ export default {
         this.active = null
         this.active2 = null
       }
-      this.$axios.get('http://jabar.pojoksatu.id/wp-json/bogor/v1/topik')
+      this.$axios.get('https://jabar.pojoksatu.id/wp-json/bogor/v1/topik')
         .then(response => {
           var vd = response.data
           // JSON responses are automatically parsed.

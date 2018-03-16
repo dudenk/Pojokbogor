@@ -77,7 +77,7 @@ export default {
   },
   methods: {
     getPopuler () {
-      this.$axios.get('http://jabar.pojoksatu.id/wp-json/bogor/v1/popular')
+      this.$axios.get('https://jabar.pojoksatu.id/wp-json/bogor/v1/popular')
         .then(response => {
           var vd = response.data
           // JSON responses are automatically parsed.
