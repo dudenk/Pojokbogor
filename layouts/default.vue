@@ -124,6 +124,11 @@ export default {
       }
     }
   },
+  updated: function () {
+    this.$OneSignal.push(() => {
+      this.$OneSignal.showHttpPrompt()
+    })
+  },
   methods: {
     getActiveMenu() {
       //console.log(this.$route.name)

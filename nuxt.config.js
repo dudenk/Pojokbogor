@@ -53,9 +53,7 @@ module.exports = {
       welcomeNotification: {
           disable: true
       },
-      notifyButton: {
-          enable: true /* Set to false to hide */
-      },
+      autoRegister: false,
       promptOptions: {
         /* actionMessage limited to 90 characters */
         actionMessage: "PojokBogor boleh mengirimkan berita pilihan terbaik untuk Anda",
