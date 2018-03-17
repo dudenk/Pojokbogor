@@ -4,6 +4,9 @@ module.exports = {
   /*
   ** Headers of the page
   */
+  router: {
+    middleware: ['https']
+  },
   head: {
     titleTemplate: '%s - PojokBogor.com',
     meta: [
