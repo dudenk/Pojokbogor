@@ -24,7 +24,7 @@
             <van-row gutter="20" v-if="post" class="post-text" >
               <van-col span="20">
                 <div class="post-info">
-                  <span class="thetime updated" itemprop="datePublished" :content="post.snippet.publishedAt" style="display:block;">{{ postDate2(post.snippet.publishedAt) }}</span>
+                  <span class="thetime updated" itemprop="datePublished" :content="post.contentDetails.videoPublishedAt" style="display:block;">{{ postDate2(post.snippet.publishedAt) }}</span>
                 </div>
                 <h3 class="title post-title"> <router-link :to="{ name: 'video-slug', params: { slug: post.contentDetails.videoId }}" v-html="post.snippet.title"> </router-link> </h3>
               </van-col>
