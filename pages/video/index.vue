@@ -1,9 +1,6 @@
 <template>
   <div class="layout-padding row justify-center">
-    <iframe
-      src="http://pojoksatu.pojokiklan.net/?wpproadszoneid=306"
-      style="width: 100%; height: 90px; background:#fff; z-index:2"
-    />
+    <adsbygoogle ad-slot="1364860599" ad-layout-key="-fe+69+39-ji+nt" ad-format="fluid" />
     <section id="latest-posts" class="clearfix">
       <van-nav-bar title="Video" />
       <div class="clearfix" style="margin-top:-15px; z-index:0;">
@@ -14,7 +11,7 @@
                   <!-- <a :href="videoURL(post.contentDetails.videoId)" title="post.snippet.title">-->
                   <router-link :to="{ name: 'video-slug', params: { slug: post.contentDetails.videoId }}">
                     <div class="image-container" itemprop="image">
-                      <img :src="post.snippet.thumbnails.medium.url" class="thumbnail" alt="" scale="0">
+                      <img :src="post.snippet.thumbnails.medium.url" class="thumbnail" :alt="post.snippet.title" scale="0">
                     </div>
                   </router-link>
                   <!-- </a> -->

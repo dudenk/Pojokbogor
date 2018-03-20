@@ -29,7 +29,7 @@
               <kota-bogor v-if="KotaKab === 'kota-bogor'"> </kota-bogor>
               <kab-bogor v-if="KotaKab === 'kabupaten-bogor'"> </kab-bogor>
             </div>
-            <iframe title="iklan" v-if="index === 0 && i === 5"
+            <iframe id="iklan" name="pojokiklan" title="Pojok Iklan" v-if="index === 0 && i === 5"
               src="http://pojoksatu.pojokiklan.net/?wpproadszoneid=348"
               style="width: 100%; height: 90px; background:#fff; z-index:2"
             />
