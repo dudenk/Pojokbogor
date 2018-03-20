@@ -3,7 +3,7 @@
     <div class="layout-padding row justify-center">
     <section class="container clearfix">
       <adsbygoogle ad-slot="1364860599" ad-layout-key="-fe+69+39-ji+nt" ad-format="fluid" />
-      <iframe id="player" type="text/html" width="100%" min-height="350px"
+      <iframe title="youtube" id="player" type="text/html" width="100%" min-height="350px"
         :src="youtubeSrc()"
       frameborder="0"></iframe>
     </section>

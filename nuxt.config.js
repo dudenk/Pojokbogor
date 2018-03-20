@@ -69,7 +69,7 @@ module.exports = {
   },
   manifest: {
     name: 'Berita dan kabar pilihan bogor - PojokBogor.com',
-    short_name: 'PojokBogor.com',
+    short_name: 'PojokBogor',
     description: 'Berita dan kabar pilihan terkini serta terbaru seputar peristiwa, kuliner, belanja, dan wisata di Bogor.',
     lang: 'id',
     icons: [{

@@ -4,7 +4,7 @@
     <van-swipe>
       <van-swipe-item v-for="(post, index) of beritaKabBogor.pages[0].content.data" :key="index" >
         <div class="slideImg">
-          <img :src="post.gambar" />
+          <img :src="post.gambar" :alt="post.title"/>
         </div>
         <div class="flex-caption">
           <h3 class="slidertitle" itemprop="headline">

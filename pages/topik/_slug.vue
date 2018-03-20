@@ -5,7 +5,7 @@
         <van-swipe>
           <van-swipe-item v-for="(hl,index) of headlineLoader.pages[0].content" :key="index" >
             <div class="slideImg">
-              <img v-lazy="imageSource(hl.imgSrcMedium)" />
+              <img v-lazy="imageSource(hl.imgSrcMedium)" :alt="hl.title" />
             </div>
             <div class="flex-caption">
               <div class="sliderdate">
@@ -29,7 +29,7 @@
               <kota-bogor v-if="KotaKab === 'kota-bogor'"> </kota-bogor>
               <kab-bogor v-if="KotaKab === 'kabupaten-bogor'"> </kab-bogor>
             </div>
-            <iframe v-if="index === 0 && i === 5"
+            <iframe title="iklan" v-if="index === 0 && i === 5"
               src="http://pojoksatu.pojokiklan.net/?wpproadszoneid=348"
               style="width: 100%; height: 90px; background:#fff; z-index:2"
             />

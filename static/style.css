@@ -1,6 +1,6 @@
 body {
   font-family: 'Open Sans', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   background-color: #fafafa;
 }
 img.logo {
@@ -35,12 +35,12 @@ h2 {
 }
 h3 {
   line-height: 18px;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 400;
   letter-spacing: 0.2px;
 }
 p {
-  font-size: 15px;
+  font-size: 16px;
   letter-spacing: 0.2px;
   line-height: 22px;
   font-weight: 300;
@@ -120,7 +120,7 @@ span.thecategory {
   padding-right: 10px;
 }
 span.thecategory a {
-  color: #fc5454;
+  color: #AC0B0B;
 }
 .social-icons li {
   display: inline-block;
