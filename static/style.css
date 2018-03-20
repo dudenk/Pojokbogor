@@ -168,3 +168,6 @@ span.thecategory a {
 .van-goods-action {
   position: absolute;
 }
+.van-tabbar-item--active {
+  color:#1500AA;
+}

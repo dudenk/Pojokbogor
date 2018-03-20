@@ -157,7 +157,11 @@ module.exports = {
   /*
   ** Customize the progress bar color
   */
-
+  render: {
+    static: {
+      maxAge: 1000 * 60 * 60 * 24 * 360
+    }
+  },
   generate: {
     routes: function() {
       return axios.get('https://jabar.pojoksatu.id/wp-json/wp/v2/posts/')

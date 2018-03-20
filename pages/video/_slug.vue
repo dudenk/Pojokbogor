@@ -17,7 +17,7 @@
                   <!-- <a :href="videoURL(post.contentDetails.videoId)" title="post.snippet.title">-->
                   <router-link :to="{ name: 'video-slug', params: { slug: post.contentDetails.videoId }}">
                     <div class="image-container" itemprop="image">
-                      <img :src="post.snippet.thumbnails.medium.url" class="thumbnail" alt="" scale="0">
+                      <img :src="post.snippet.thumbnails.medium.url" class="thumbnail" :alt="post.snippet.title" scale="0">
                     </div>
                   </router-link>
                   <!-- </a> -->
