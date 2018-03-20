@@ -11,7 +11,7 @@
     <van-col span="8">
       <router-link :to="{ name: 'baca-slug', params: { slug: post.slug }}" :title="post.title">
         <div class="image-container" itemprop="image">
-          <img width="110" :src="imageSource" class="wp-post-image" alt="" scale="0">
+          <img width="110" v-lazy="imageSource" class="wp-post-image" alt="" scale="0">
         </div>
       </router-link>
     </van-col>
@@ -33,7 +33,7 @@ export default {
   props: ['post', 'imgSize'],
   computed: {
     imageSource () {
-      return this.getImageSource(this.post, this.imgSize)
+      return 'https' + this.getImageSource(this.post, this.imgSize).substring(4)
     },
     postDate () {
       // console.log(this)

@@ -5,7 +5,7 @@
         <van-swipe>
           <van-swipe-item v-for="(hl,index) of headlineLoader.pages[0].content" :key="index" >
             <div class="slideImg">
-              <img :src="hl.imgSrcMedium" />
+              <img v-lazy="imageSource(hl.imgSrcMedium)" />
             </div>
             <div class="flex-caption">
               <div class="sliderdate">
@@ -76,21 +76,29 @@ export default {
     kabBogor
   },
   async fetch (vm) {
+    console.log(vm)
     vm.store.dispatch('getTag', vm.params.slug)
+    vm.store.dispatch('getPosts')
   },
   computed: {
     dataTags () {
       this.getPostLoader(this.$store.state.tag)
       return this.$store.state.tag
+    },
+    posts () {
+      console.log(this.$store.state.posts)
+      return this.$store.state.posts
     }
   },
   data () {
     return {
       error: null,
       postLoader: this.createWpLoader('https://jabar.pojoksatu.id/wp-json/wp/v2/posts', {
+        embed :false,
         queryParams: ['categories=6', 'per_page=20', 'tags=' + this.$store.state.tag.id]
       }),
       headlineLoader: this.createWpLoader('https://jabar.pojoksatu.id/wp-json/wp/v2/posts', {
+        embed :false,
         queryParams: ['categories=6', 'per_page=3', 'filter[meta_key]=headline', 'filter[meta_value]=1', 'tags=' + this.$store.state.tag.id]
       }),
       KotaKab: null
@@ -112,6 +120,9 @@ export default {
     this.setData()
   },
   methods: {
+    imageSource (src) {
+      return 'https' + src.substring(4)
+    },
     setData () {
       this.KotaKab = this.$route.params.slug
     },
@@ -121,9 +132,11 @@ export default {
     },
     getPostLoader (tags) {
       this.postLoader = this.createWpLoader('https://jabar.pojoksatu.id/wp-json/wp/v2/posts', {
+        embed :false,
         queryParams: ['categories=6', 'per_page=20', 'tags=' + tags.id]
       })
       this.headlineLoader = this.createWpLoader('https://jabar.pojoksatu.id/wp-json/wp/v2/posts', {
+        embed :false,
         queryParams: ['categories=6', 'per_page=3', 'filter[meta_key]=headline', 'filter[meta_value]=1', 'tags=' + tags.id]
       })
     }

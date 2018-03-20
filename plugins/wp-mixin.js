@@ -8,6 +8,10 @@ import VueMomentJS from 'vue-momentjs'
 // import vueHeadful from 'vue-headful'
 import axios from 'axios'
 
+import { Lazyload } from 'vant'
+
+Vue.use(Lazyload)
+
 Vue.use(VueMomentJS, moment)
 // Vue.component('vue-headful', vueHeadful)
 // wpGet just wraps some of the basic fetch boilerplate
@@ -105,21 +109,21 @@ export default {
           for ( var index = 0; index < mentah.length; ++index) {
             var p = mentah[index]
             var datanya = {
-              imgSrcThumbnail: safeGet(p, '_embedded.wp:featuredmedia[0].media_details.sizes.thumbnail.source_url'),
-              imgSrcMedium: safeGet(p, '_embedded.wp:featuredmedia[0].media_details.sizes.medium.source_url'),
-              imgSrcFeatured: safeGet(p, '_embedded.wp:featuredmedia[0].media_details.sizes.featured.source_url'),
-              imgSrcFull: safeGet(p, '_embedded.wp:featuredmedia[0].media_details.sizes.full.source_url'),
-              imgAlt: safeGet(p, '_embedded.wp:featuredmedia[0].alt_text'),
-              imgTitle: safeGet(p, '_embedded.wp:featuredmedia[0].title.rendered'),
+              imgSrcThumbnail: safeGet(p, 'better_featured_image.media_details.sizes.thumbnail.source_url'),
+              imgSrcMedium: safeGet(p, 'better_featured_image.media_details.sizes.medium.source_url'),
+              imgSrcFeatured: safeGet(p, 'better_featured_image.media_details.sizes.featured.source_url'),
+              imgSrcFull: safeGet(p, 'better_featured_image.media_details.sizes.full.source_url'),
+              imgAlt: safeGet(p, 'better_featured_image.alt_text'),
+              imgTitle: safeGet(p, 'better_featured_image.caption'),
               title: safeGet(p, 'title.rendered'),
               content: safeGet(p, 'content.rendered'),
               excerpt: safeGet(p, 'excerpt.rendered'),
-              author: safeGet(p, '_embedded.author[0].name'),
+              //author: safeGet(p, '_embedded.author[0].name'),
               link: { path: '/' + safeGet(p, 'slug') }, // TODO: Should this be moved to link from slug?
               slug: safeGet(p, 'slug'), // TODO: Should this be moved to link from slug?
               bareUrl: safeGet(p, 'link'),
               date: safeGet(p, 'date'),
-              tags: mx.getTags(p),
+              //tags: mx.getTags(p),
               singleTag: mx.getSingleTags(p)
             }
             hasil.data.push(datanya)
@@ -185,8 +189,8 @@ export default {
     },
 
     getSingleTags (postJson, tagTaxonomy) {
-      const wpTermCAT = safeGet(postJson, '_embedded.wp:term[0]')
-      const wpTerm = safeGet(postJson, '_embedded.wp:term[1]')
+      const wpTermCAT = safeGet(postJson, 'pure_taxonomies.categories')
+      const wpTerm = safeGet(postJson, 'pure_taxonomies.tags')
       // tagTaxonomy = tagTaxonomy || 'post_tag'
       if ( wpTermCAT[1] )
         return wpTermCAT[1]

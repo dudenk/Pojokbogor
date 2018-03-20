@@ -1,5 +1,5 @@
 import axios from 'axios'
 
 export default axios.create({
-  baseURL: 'https://jabar.pojoksatu.id/wp-json/wp/'
+  baseURL: 'https://jabar.pojoksatu.id/wp-json/'
 })

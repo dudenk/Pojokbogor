@@ -5,7 +5,7 @@
         <van-swipe>
           <van-swipe-item v-for="(hl,index) of headlineLoader.pages[0].content" :key="index" >
             <div class="slideImg">
-              <img :src="hl.imgSrcMedium" />
+              <img v-lazy="imageSource(hl.imgSrcMedium)" />
             </div>
             <div class="flex-caption">
               <div class="sliderdate">
@@ -63,11 +63,11 @@ export default {
     return {
       // queryParams can contain any query paramater key and value defined by the WP REST API
       postLoader: this.createWpLoader('https://jabar.pojoksatu.id/wp-json/wp/v2/posts', {
-        // embed: false,
+        embed: false,
         queryParams: ['categories=6', 'per_page=20']
       }),
       headlineLoader: this.createWpLoader('https://jabar.pojoksatu.id/wp-json/wp/v2/posts', {
-        // embed: false,
+        embed: false,
         queryParams: ['categories=6', 'per_page=3', 'filter[meta_key]=headline', 'filter[meta_value]=1']
       })
     }
@@ -85,6 +85,9 @@ export default {
     }
   },
   methods: {
+    imageSource (src) {
+      return 'https' + src.substring(4)
+    },
     postDate2: function (theDate) {
       this.$moment.locale('id')
       return this.$moment(theDate).startOf('minutes').fromNow()

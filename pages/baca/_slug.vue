@@ -20,7 +20,6 @@
               </div>
               <social-sharing :url="shareUrl(post.slug)" inline-template>
                 <div>
-
                   <ul class="social-icons">
                     <li class="social-icons__item">
                       <div class="svg-icon">
@@ -55,7 +54,7 @@
               </social-sharing>
             </div>
             <div class="the-thumbnail">
-              <img class="fullsingle" data-cfsrc="" :title="post.title.rendered" :alt="post.title.rendered" :src="post.featured_image_src" scale="0">
+              <img class="fullsingle" :title="post.title.rendered" :alt="post.title.rendered" v-lazy="imageSource" scale="0">
               <h2 class="wp-caption-text">{{ post.better_featured_image.caption }} </h2>
             </div>
             <div class="content">
@@ -134,6 +133,9 @@ export default {
   computed: {
     post () {
       return this.$store.state.post
+    },
+    imageSource () {
+      return 'https' + this.post.featured_image_src.substring(4)
     },
     postUrl: function () {
       return 'https://bogor.pojoksatu.id/baca/' + this.post.slug
