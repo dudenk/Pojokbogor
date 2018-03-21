@@ -54,6 +54,9 @@ img {
 span.text {
   font-size: 12px;
 }
+.van-swipe-item{
+  min-height: 150px;
+}
 .slideImg {
   max-height: 250px;
   overflow: hidden;
