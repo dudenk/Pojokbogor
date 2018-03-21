@@ -191,7 +191,7 @@ export default {
 }
 h1 {
   font-size: 16px;
-  margin-bottom: -30px;
+  margin-bottom: -40px;
 }
 h2 {
   font-size: 16px !important;
