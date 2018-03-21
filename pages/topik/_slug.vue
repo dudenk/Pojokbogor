@@ -81,18 +81,12 @@ export default {
     kabBogor
   },
   async fetch (vm) {
-    console.log(vm)
     vm.store.dispatch('getTag', vm.params.slug)
-    vm.store.dispatch('getPosts')
   },
   computed: {
     dataTags () {
       this.getPostLoader(this.$store.state.tag)
       return this.$store.state.tag
-    },
-    posts () {
-      console.log(this.$store.state.posts)
-      return this.$store.state.posts
     }
   },
   data () {
@@ -136,6 +130,9 @@ export default {
       return this.$moment(theDate).startOf('minutes').fromNow()
     },
     getPostLoader (tags) {
+      if ( !this.$isServer && navigator.onLine ) {
+        console.log('online')
+      }
       this.postLoader = this.createWpLoader('https://jabar.pojoksatu.id/wp-json/wp/v2/posts', {
         embed :false,
         queryParams: ['categories=6', 'per_page=20', 'tags=' + tags.id]

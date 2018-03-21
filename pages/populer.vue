@@ -1,10 +1,11 @@
 <template>
   <div>
-    <section v-if="beritaPopular" id="latest-posts" class="clearfix">
+    <section v-if="posts" id="latest-posts" class="clearfix">
+
       <van-nav-bar title="Berita Populer" />
 
-        <async-content :loaded="beritaPopular.loaded">
-          <div v-for="(post,i) of beritaPopular.content" :key="i" >
+        <async-content :loaded="posts.loaded">
+          <div v-for="(post,i) of posts.content" :key="i" >
             <article class="list" itemscope="" itemtype="http://schema.org/NewsArticle">
               <post-sumnew :post="post" class="post-populer"></post-sumnew>
             </article>
@@ -46,9 +47,12 @@ export default {
     postSumnew
   },
   async fetch (vm) {
-    // vm.store.dispatch('getTag', vm.params.slug)
+    vm.store.dispatch('getPopulerPosts')
   },
   computed: {
+    posts () {
+      return this.$store.state.populerposts
+    }
     /* dataTags () {
       this.getPostLoader(this.$store.state.tag)
       return this.$store.state.tag
@@ -77,14 +81,14 @@ export default {
   },
   methods: {
     getPopuler () {
-      this.$axios.get('https://jabar.pojoksatu.id/wp-json/bogor/v1/popular')
+      /*this.$axios.get('https://jabar.pojoksatu.id/wp-json/bogor/v1/popular')
         .then(response => {
           var vd = response.data
           // JSON responses are automatically parsed.
           if (vd) {
             this.beritaPopular = vd
           }
-        })
+        }) */
     },
     postDate2: function (theDate) {
       this.$moment.locale('id')
