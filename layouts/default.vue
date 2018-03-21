@@ -190,10 +190,11 @@ export default {
   font-size: 18px;
 }
 h1 {
-  font-size: 14px;
+  font-size: 16px;
+  margin-bottom: -30px;
 }
 h2 {
-  font-size: 12px !important;
+  font-size: 16px !important;
   line-height: 10px;
 }
 .social {
