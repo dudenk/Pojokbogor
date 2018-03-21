@@ -29,7 +29,10 @@
               <kota-bogor v-if="KotaKab === 'kota-bogor'"> </kota-bogor>
               <kab-bogor v-if="KotaKab === 'kabupaten-bogor'"> </kab-bogor>
             </div>
-            <iframe id="iklan" name="pojokiklan" title="Pojok Iklan" v-if="index === 0 && i === 5"
+            <div v-if="index === 0 && i === 5 && KotaKab === 'kota-bogor' ">
+              <pdam-bogor> </pdam-bogor>
+            </div>
+            <iframe v-else-if="index === 0 && i === 5" id="iklan" name="pojokiklan" title="Pojok Iklan"
               src="http://pojoksatu.pojokiklan.net/?wpproadszoneid=348"
               style="width: 100%; height: 90px; background:#fff; z-index:2"
             />
@@ -57,6 +60,7 @@ import wpMixin from '~/plugins/wp-mixin'
 import asyncContent from '~/components/async-content.vue'
 import postSummary from '~/components/post-summary.vue'
 import kotaBogor from '~/components/kota-bogor.vue'
+import pdamBogor from '~/components/pdam-bogor.vue'
 import kabBogor from '~/components/kab-bogor.vue'
 
 import { NavBar, NoticeBar, Swipe, SwipeItem, Button  } from 'vant';
@@ -73,6 +77,7 @@ export default {
     [Button.name]: Button,
     postSummary,
     kotaBogor,
+    pdamBogor,
     kabBogor
   },
   async fetch (vm) {

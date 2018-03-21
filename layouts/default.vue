@@ -124,11 +124,6 @@ export default {
       }
     }
   },
-  updated: function () {
-    this.$OneSignal.push(() => {
-      this.$OneSignal.showHttpPrompt()
-    })
-  },
   methods: {
     getActiveMenu() {
       //console.log(this.$route.name)
@@ -163,14 +158,22 @@ export default {
       else {
         this.active = null
       }
-      this.$axios.get('https://jabar.pojoksatu.id/wp-json/bogor/v1/topik')
-        .then(response => {
-          var vd = response.data
-          // JSON responses are automatically parsed.
-          if (vd) {
-            this.tagMenus = vd
-          }
-        })
+      if ( !this.$isServer && localStorage.getItem('topiks') ) {
+        this.tagMenus = JSON.parse(localStorage.getItem('topiks'))
+      }
+      else {
+        this.$axios.get('https://jabar.pojoksatu.id/wp-json/bogor/v1/topik')
+          .then(response => {
+            var vd = response.data
+            // JSON responses are automatically parsed.
+            if (vd) {
+              if ( !this.$isServer ) {
+                localStorage.setItem('topiks', JSON.stringify(vd))
+              }
+              this.tagMenus = vd
+            }
+          })
+      }
     }
   }
 };

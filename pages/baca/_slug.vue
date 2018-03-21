@@ -216,6 +216,11 @@ export default {
   created: function () {
     this.getRelated()
   },
+  updated: function () {
+    this.$OneSignal.push(() => {
+      this.$OneSignal.showHttpPrompt()
+    })
+  },
   methods: {
     getRelated () {
       this.$axios.get('https://jabar.pojoksatu.id/wp-json/bogor/v1/related/?slug=' + this.$route.params.slug)

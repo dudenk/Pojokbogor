@@ -42,13 +42,13 @@ const createStore = () => {
       },
       async getTopiks ({commit}) {
         let {data} = await axios.get('bogor/v1/topik')
-        console.log(data)
+        //console.log(data)
         commit('setTopiks', data)
       },
       async nuxtServerInit ({commit}, {store, isClient, isServer, route, params}) {
         if (isServer && route.name === 'index') {
           let {topiks} = await axios.get('bogor/v1/topik')
-          console.log(topiks)
+          //console.log(topiks)
           commit('setTopiks', topiks)
         }
         if (isServer && route.name === 'topik') {
