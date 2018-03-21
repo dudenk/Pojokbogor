@@ -2,7 +2,7 @@
   <div v-if="PDAMBogor" class="framebogor">
     <div class="framtitle">PDAM Bogor</div>
     <van-row gutter="0">
-      <van-col span="12" v-for="(post, index) of PDAMBogor.pages[0].content.data" :key="index" class="posR" >
+      <van-col span="12" v-for="(post, index) of PDAMBogor.pages[0].content.data" :key="index" class="posR" style="">
         <div class="boxImg">
           <img :src="post.gambar" :alt="post.judul"/>
         </div>
@@ -59,6 +59,7 @@ export default {
 }
 .posR {
   position: relative;
+  min-height: 150px;
 }
 .boxImg {
     text-align: center;
