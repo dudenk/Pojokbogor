@@ -1,4 +1,4 @@
-let vm = this
+/*let vm = this
 window.fbAsyncInit = () => {
   FB.init({
     appId: '1975447592717295',
@@ -18,3 +18,4 @@ window.fbAsyncInit = () => {
   js.src = "//connect.facebook.net/id_ID/sdk.js";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
+*/
