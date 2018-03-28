@@ -24,7 +24,7 @@ module.exports = {
       // { innerHTML: '{"@context":"http://schema.org","@type":"WebSite","url":"http://bogor.pojoksatu.id"}', type: 'application/ld+json' }
     ],
     noscript: [
-      { innerHTML: '<img height="1" width="1" src="https://www.facebook.com/tr?id=1878460509132439&ev=PageView&noscript=1"/>' }
+      // { innerHTML: "<img height='1' width='1' src='https://www.facebook.com/tr?id=1878460509132439&ev=PageView&noscript=1'/>" }
     ],
     __dangerouslyDisableSanitizers: ['script', 'noscript']
   },

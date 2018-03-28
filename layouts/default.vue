@@ -62,6 +62,9 @@
         </div>
       </div>
     </div>
+    <no-ssr>
+      <noscript><img height="1" width="1" src="https://www.facebook.com/tr?id=1878460509132439&ev=PageView&noscript=1"/></noscript>
+    </no-ssr>
     <van-tabbar v-model="active">
       <van-tabbar-item icon="wap-home" to="/">
           Terkini
@@ -100,6 +103,7 @@ export default {
   },
   data() {
     return {
+      //fbpixel: "<img height='1' width='1' src='https://www.facebook.com/tr?id=1878460509132439&ev=PageView&noscript=1'/>",
       active: 0,
       active2: 0,
       tagMenus: []
