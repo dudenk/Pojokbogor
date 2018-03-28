@@ -26,7 +26,7 @@ module.exports = {
     noscript: [
       { innerHTML: '<img height="1" width="1" src="https://www.facebook.com/tr?id=1878460509132439&ev=PageView&noscript=1"/>' }
     ],
-    __dangerouslyDisableSanitizers: ['script']
+    __dangerouslyDisableSanitizers: ['script', 'noscript']
   },
   css: [
     'vant/lib/vant-css/index.css',
