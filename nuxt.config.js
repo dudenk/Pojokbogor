@@ -21,6 +21,7 @@ module.exports = {
     ],
     script: [
       { innerHTML: "!function(f,b,e,v,n,t,s) {if(f.fbq)return;n=f.fbq=function(){n.callMethod? n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init', '1878460509132439');fbq('track', 'PageView'); ", type: 'text/javascript' },
+      { innerHTML: "_atrk_opts = { atrk_acct:'3v1Hk1ao6C52WR', domain:'pojoksatu.id',dynamic: true}; (function() { var as = document.createElement('script'); as.type = 'text/javascript'; as.async = true; as.src = 'https://certify-js.alexametrics.com/atrk.js'; var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(as, s); })();", type: 'text/javascript' },
       // { innerHTML: '{"@context":"http://schema.org","@type":"WebSite","url":"http://bogor.pojoksatu.id"}', type: 'application/ld+json' }
     ],
     noscript: [
