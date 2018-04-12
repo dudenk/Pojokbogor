@@ -63,8 +63,10 @@
       </div>
     </div>
     <no-ssr>
-      <noscript><img height="1" width="1" src="https://www.facebook.com/tr?id=1878460509132439&ev=PageView&noscript=1"/></noscript>
-      <noscript><img src="https://certify.alexametrics.com/atrk.gif?account=3v1Hk1ao6C52WR" style="display:none" height="1" width="1" alt="" /></noscript>
+      <noscript>
+        <img height="1" width="1" src="https://www.facebook.com/tr?id=1878460509132439&ev=PageView&noscript=1"/>
+        <img src="https://certify.alexametrics.com/atrk.gif?account=3v1Hk1ao6C52WR" style="display:none" height="1" width="1" alt="" />
+      </noscript>
     </no-ssr>
     <van-tabbar v-model="active">
       <van-tabbar-item icon="wap-home" to="/">
