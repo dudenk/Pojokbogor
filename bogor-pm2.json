@@ -1,0 +1,6 @@
+{ "apps": [
+
+ 		{ "name": "bogor", "cwd": "/sites/apps/bogor.pojoksatu.id/www", "script": "npm", "args": "start" } 
+
+] }
+

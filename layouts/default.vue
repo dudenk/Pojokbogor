@@ -104,12 +104,13 @@ export default {
     [GoodsAction.name]: GoodsAction,
     [GoodsActionMiniBtn.name]: GoodsActionMiniBtn
   },
-  data() {
+  data({ isMobile }) {
     return {
       //fbpixel: "<img height='1' width='1' src='https://www.facebook.com/tr?id=1878460509132439&ev=PageView&noscript=1'/>",
       active: 0,
       active2: 0,
-      tagMenus: []
+      tagMenus: [],
+      isMobile
     }
   },
   watch: {

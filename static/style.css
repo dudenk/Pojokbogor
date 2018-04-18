@@ -40,9 +40,9 @@ h3 {
   letter-spacing: 0.2px;
 }
 p {
-  font-size: 16px;
+  font-size: 17px;
   letter-spacing: 0.2px;
-  line-height: 22px;
+  line-height: 25px;
   font-weight: 300;
 }
 a {
@@ -91,6 +91,7 @@ article {
 article.list {
   border-bottom: 1px solid #eee;
   padding-top: 5px;
+  background: #fff;
 }
 article.single {
   background: #fff;

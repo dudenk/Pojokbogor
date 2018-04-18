@@ -42,6 +42,7 @@ module.exports = {
     // { src: '~/plugins/fb-sdk', ssr: false }
   ],
   modules: [
+    'nuxt-device-detect',
     '@nuxtjs/onesignal',
     '@nuxtjs/pwa',
     '@nuxtjs/axios',
@@ -72,7 +73,7 @@ module.exports = {
     }
   },
   manifest: {
-    name: 'Berita dan kabar pilihan bogor - PojokBogor.com',
+    name: 'Berita dan Kabar Pilihan di Bogor - PojokBogor.com',
     short_name: 'PojokBogor',
     description: 'Berita dan kabar pilihan terkini serta terbaru seputar peristiwa, kuliner, belanja, dan wisata di Bogor.',
     lang: 'id',
@@ -112,6 +113,7 @@ module.exports = {
      * Adds an interceptor to automatically set `withCredentials` config of axios
      * when requesting to baseUrl which allows passing authentication headers to backend.
      */
+    proxyHeaders: false,
     credentials: false,
     /**
      * Adds interceptors to log all responses and requests
